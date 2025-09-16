@@ -1,16 +1,15 @@
 import { MoveRight } from "lucide-react";
-import React from "react";
 
 export default function About() {
   return (
-    <section id="about" className="py-25">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 font-secondary">
+    <section id="about" className="pt-25">
+      <div className="max-w-7xl mx-auto px-6 font-secondary">
         {/* header */}
         <div className="space-y-15 mb-20">
-          <div className="flex flex-col justify-center items-center mt-16">
+          <div className="flex flex-col justify-center items-center">
             <img
               src={
-                "https://res.cloudinary.com/douen1dwv/image/upload/v1758035273/default/lotus_wrov9l.png"
+                "https://res.cloudinary.com/douen1dwv/image/upload/v1758047929/default/lotus_2_zntprp.png"
               }
               alt="Logo"
               className="h-12"
@@ -31,9 +30,11 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* left-profile */}
           <div className="relative block">
-            <div className="relative mx-auto w-full h-[25vh] lg:h-[45vh] rounded-tr-[20vw] overflow-hidden">
+            <div className="relative mx-auto w-full h-[25vh] lg:h-[50vh] rounded-tr-[20vw] overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/5793894/pexels-photo-5793894.jpeg?_gl=1*r16md7*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwMzc4NTckbzQkZzEkdDE3NTgwMzc4ODAkajM3JGwwJGgw"
+                src={
+                  "https://images.pexels.com/photos/5793894/pexels-photo-5793894.jpeg?_gl=1*r16md7*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwMzc4NTckbzQkZzEkdDE3NTgwMzc4ODAkajM3JGwwJGgw"
+                }
                 alt="Physiotherapist"
                 className="w-full h-full object-cover object-[25%_20%] lg:object-[25%_35%] rounded-2xl"
               />
@@ -42,7 +43,9 @@ export default function About() {
 
           {/* right-content */}
           <div className="space-y-8">
-            <h2 className="text-2xl font-primary text-vanilla">Meet Jane Doe</h2>
+            <h2 className="text-2xl font-primary text-vanilla">
+              Meet Jane Doe
+            </h2>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-primary font-bold text-sandstone">
               Let’s restore, relax & rebalance your body

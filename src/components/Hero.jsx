@@ -4,9 +4,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative bg-white lg:rounded-3xl lg:mx-5 mt-16"
+      className="relative bg-white lg:rounded-3xl lg:mx-6 mt-16"
     >
-      <div className="relative max-w-7xl mx-auto px-8 p-8 font-secondary">
+      <div className="relative max-w-7xl mx-auto px-6 p-8 font-secondary">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* left-content */}
           <div className="space-y-6">
@@ -26,7 +26,7 @@ export default function Hero() {
             </div>
 
             {/* links */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-8 items-center justify-center lg:justify-start text-sm">
+            <div className="flex flex-col sm:flex-row gap-8 items-center justify-center lg:justify-start">
               <a
                 href="#booking"
                 className="uppercase tracking-widest w-fit text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2"
@@ -46,11 +46,11 @@ export default function Hero() {
 
           {/* right-content - overlay image */}
           <div className="relative block">
-            <div className="relative mx-auto w-full h-[50vh] md:w-5/5 lg:w-4/5 md:rounded-2xl rounded-t-full overflow-hidden -mb-20 z-10">
+            <div className="relative mx-auto w-full h-[35vh] lg:h-[45vh] md:rounded-2xl rounded-t-full overflow-hidden -mb-20 z-10">
               <img
-                src="https://images.pexels.com/photos/5793886/pexels-photo-5793886.jpeg?_gl=1*zmg8wl*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwMTI1MDMkbzMkZzEkdDE3NTgwMTMyMDIkajQyJGwwJGgw"
+                src="https://images.pexels.com/photos/5793681/pexels-photo-5793681.jpeg?_gl=1*cwxc9w*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwNTA5MTUkbzckZzEkdDE3NTgwNTA5MTYkajU5JGwwJGgw"
                 alt="Physiotherapist"
-                className="w-full h-full object-cover object-[25%_45%] rounded-b-2xl lg:rounded-t-full"
+                className="w-full h-full object-cover object-[25%_30%] md:object-[25%_35%] rounded-b-2xl lg:rounded-t-full"
               />
             </div>
           </div>

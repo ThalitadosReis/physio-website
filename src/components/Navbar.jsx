@@ -13,12 +13,12 @@ export default function Navbar() {
             <div className="flex items-center space-x-2">
               <img
                 src={
-                  "https://res.cloudinary.com/douen1dwv/image/upload/v1758035273/default/lotus_wrov9l.png"
+                  "https://res.cloudinary.com/douen1dwv/image/upload/v1758047929/default/lotus_2_zntprp.png"
                 }
                 alt="Logo"
                 className="h-10 "
               />
-              <span className="text-xl font-bold">Physio+</span>
+              <span className="text-xl font-primary">Physio+</span>
             </div>
           </div>
 

@@ -6,13 +6,13 @@ export default function Hero() {
       id="home"
       className="relative bg-white lg:rounded-3xl lg:mx-5 mt-16"
     >
-      <div className="relative max-w-7xl mx-auto px-8 p-8">
+      <div className="relative max-w-7xl mx-auto px-8 p-8 font-secondary">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* left-content */}
           <div className="space-y-6">
             {/* main-heading */}
             <div className="space-y-4 text-sandstone text-center lg:text-left">
-              <h1 className="text-4xl lg:text-5xl leading-tight">
+              <h1 className="font-primary text-4xl lg:text-6xl leading-tight">
                 <span className="block lg:text-left">
                   Helping you <br className="hidden lg:block md:block" />
                   Achieve Optimal <br className="hidden lg:block" />
@@ -29,14 +29,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 md:gap-8 items-center justify-center lg:justify-start text-sm">
               <a
                 href="#booking"
-                className="uppercase font-medium text-xs bg-sandstone text-white hover:bg-white hover:text-sandstone px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2 "
+                className="uppercase tracking-widest w-fit text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2"
               >
                 <span>Book Appointment</span>
                 <MoveRight className="w-4 h-4" />
               </a>
               <span className="hidden sm:block border-l border-sandstone/50 h-12"></span>
               <div className="text-sandstone">
-                <div className="uppercase font-semibold text-xs">
+                <div className="uppercase font-extrabold text-xs">
                   Give us a call:
                 </div>
                 <div className="text-lg"> 076 123 45 67</div>
@@ -44,7 +44,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* right Content - overlay image */}
+          {/* right-content - overlay image */}
           <div className="relative block">
             <div className="relative mx-auto w-full h-[50vh] md:w-5/5 lg:w-4/5 md:rounded-2xl rounded-t-full overflow-hidden -mb-20 z-10">
               <img

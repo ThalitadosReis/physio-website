@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;1,300&display=swap');
+
 @import "tailwindcss";
 
 @theme {
     --color-porcelain: #f2efeb;
-    --color-vanilla: #d4baa7;
+    --color-vanilla: #b09987;
     --color-stardust: #9aa197;
     --color-pastelgray: #d9cab8;
     --color-sandstone: #44312b;
+
+    --font-primary: 'Tenor Sans', cursive;
+    --font-secondary: 'Public Sans', sans-serif;
 }

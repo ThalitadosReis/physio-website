@@ -1,3 +1,4 @@
+import { MoveRight } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -10,7 +11,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <div className="flex items-center space-x-2">
-                <span className="text-xl font-bold text-[#44312B]">
+                <span className="text-xl font-bold text-sandstone">
                   Physio+
                 </span>
               </div>
@@ -20,40 +21,41 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center space-x-8">
             <a
               href="#home"
-              className="text-[#44312B] hover:text-[#D4BAA7] transition-colors font-medium"
+              className="text-sandstone hover:text-vanilla transition-colors"
             >
               Home
             </a>
             <a
               href="#about"
-              className="text-[#44312B] hover:text-[#D4BAA7] transition-colors font-medium"
+              className="text-sandstone hover:text-vanilla transition-colors"
             >
               About
             </a>
             <a
               href="#services"
-              className="text-[#44312B] hover:text-[#D4BAA7] transition-colors font-medium"
+              className="text-sandstone hover:text-vanilla transition-colors"
             >
               Services
             </a>
             <a
               href="#contact"
-              className="text-[#44312B] hover:text-[#D4BAA7] transition-colors font-medium"
+              className="text-sandstone hover:text-vanilla transition-colors"
             >
               Contact
             </a>
             <a
-              href="#booking"
-              className="bg-[#44312B] hover:bg-[#D4BAA7] text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
-            >
-              Book Now
-            </a>
+                href="#booking"
+                className="uppercase font-medium text-xs bg-sandstone text-white hover:bg-white hover:text-sandstone hover:border-sandstone/80 px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2 "
+              >
+                <span>Book Appointment</span>
+                <MoveRight className="w-4 h-4" />
+              </a>
           </div>
 
           <div className="lg:hidden flex items-center space-x-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-[#44312B] hover:text-[#D4BAA7] focus:outline-none p-2"
+              className="text-sandstone hover:text-vanilla focus:outline-none p-2"
             >
               <svg
                 className="h-5 w-5"
@@ -87,35 +89,36 @@ export default function Navbar() {
             <div className="px-2 pt-2 pb-4 space-y-1">
               <a
                 href="#home"
-                className="block text-[#44312B] hover:text-[#D4BAA7] px-3 py-2 rounded-md transition-colors font-medium"
+                className="block text-sandstone hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Home
               </a>
               <a
                 href="#about"
-                className="block text-[#44312B] hover:text-[#D4BAA7] px-3 py-2 rounded-md transition-colors font-medium"
+                className="block text-sandstone hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 About
               </a>
               <a
                 href="#services"
-                className="block text-[#44312B] hover:text-[#D4BAA7] px-3 py-2 rounded-md transition-colors font-medium"
+                className="block text-sandstone hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Services
               </a>
               <a
                 href="#contact"
-                className="block text-[#44312B] hover:text-[#D4BAA7] px-3 py-2 rounded-md transition-colors font-medium"
+                className="block text-sandstone hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Contact
               </a>
               <div className="pt-2">
                 <a
-                  href="#booking"
-                  className="block bg-[#44312B] hover:bg-[#D4BAA7] text-white px-3 py-2 rounded-lg transition-colors duration-200 font-medium text-center mx-1"
-                >
-                  Book Now
-                </a>
+                href="#booking"
+                className="uppercase font-medium text-xs bg-sandstone text-white hover:bg-white hover:text-sandstone hover:border-sandstone/80 px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2 "
+              >
+                <span>Book Appointment</span>
+                <MoveRight className="w-4 h-4" />
+              </a>
               </div>
             </div>
           </div>

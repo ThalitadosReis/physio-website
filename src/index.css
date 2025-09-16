@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+    --color-porcelain: #f2efeb;
+    --color-vanilla: #d4baa7;
+    --color-stardust: #9aa197;
+    --color-pastelgray: #d9cab8;
+    --color-sandstone: #44312b;
+}

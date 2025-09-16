@@ -1,12 +1,13 @@
+import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 
 function App() {
 
   return (
-    <> 
+    <main className="min-h-screen bg-porcelain">
       <Navbar />
-      <h1 className='text-3xl font-bold'>Physio+</h1>
-    </>
+      <Hero />
+    </main>
   )
 }
 

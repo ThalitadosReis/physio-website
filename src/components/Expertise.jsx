@@ -16,11 +16,13 @@ export default function Expertise() {
 
   const handleServiceClick = (serviceName) => {
     setSelectedService(serviceName);
-    setAnimationKey(prev => prev + 1);
+    setAnimationKey((prev) => prev + 1);
   };
 
   const handleAccordionClick = (serviceName) => {
-    setOpenAccordionService(openAccordionService === serviceName ? null : serviceName);
+    setOpenAccordionService(
+      openAccordionService === serviceName ? null : serviceName
+    );
   };
 
   const services = {
@@ -62,8 +64,21 @@ export default function Expertise() {
   };
 
   return (
-   <div className="bg-vanilla/20 py-20">
+    <div className="bg-vanilla/20 py-20">
       <div className="max-w-7xl mx-auto px-6 font-secondary">
+        {/* header */}
+        <div className="space-y-15 mb-20">
+          <div className="flex flex-col justify-center items-center text-center">
+            <h1 className="font-primary text-sandstone text-6xl">
+              Areas of Expertise
+            </h1>
+            <p className="max-w-4xl text-sandstone/80 text-2xl mt-10">
+              Treatment-based Chiropractic, Acupuncture, Massage Therapy,
+              Physiotherapy & Osteopathy.
+            </p>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-[30%_65%] justify-between">
           {/* desktop left-sidebar */}
           <div className="hidden lg:block space-y-2">
@@ -77,7 +92,9 @@ export default function Expertise() {
                     : "bg-white hover:bg-sandstone/20 text-sandstone cursor-pointer"
                 }`}
               >
-                <div className="text-2xl opacity-60">{services[serviceName].icon}</div>
+                <div className="text-2xl opacity-60">
+                  {services[serviceName].icon}
+                </div>
                 <span className="text-2xl font-primary">{serviceName}</span>
               </button>
             ))}
@@ -124,15 +141,17 @@ export default function Expertise() {
                       alt={serviceName}
                       className="w-full h-[25vh] object-cover rounded-2xl mb-4"
                     />
-                    <p className="text-sandstone/80 leading-snug text-sm">
+                    <p className="text-sandstone/80 leading-snug text-sm mb-4">
                       {services[serviceName].description}
                     </p>
-                    <button
+                    <a
+                      href="#services"
                       onClick={() => handleServiceClick(serviceName)}
-                      className="mt-3 text-xs uppercase tracking-widest bg-sandstone/20 text-white hover:bg-sandstone hover:text-white px-4 py-2 rounded-full duration-200"
+                      className="uppercase tracking-widest w-fit text-xs border border-transparent bg-sandstone/20 text-white hover:bg-transparent hover:text-sandstone hover:border-sandstone/50 px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2"
                     >
-                      Select Service
-                    </button>
+                      <span>Learn more</span>
+                      <MoveRight className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -156,7 +175,9 @@ export default function Expertise() {
 
               {/* text */}
               <div className="space-y-6">
-                <h1 className="text-5xl font-primary text-sandstone">{selectedService}</h1>
+                <h1 className="text-5xl font-primary text-sandstone">
+                  {selectedService}
+                </h1>
                 <p className="text-sandstone/80 leading-snug max-w-3xl">
                   {services[selectedService].description}
                 </p>

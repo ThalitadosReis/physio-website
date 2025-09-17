@@ -2,7 +2,7 @@ import { MoveRight } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="pt-25">
+    <section id="about" className="pt-20">
       <div className="max-w-7xl mx-auto px-6 font-secondary">
         {/* header */}
         <div className="space-y-15 mb-20">

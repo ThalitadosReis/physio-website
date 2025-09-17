@@ -1,4 +1,4 @@
-import { Award, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -12,7 +12,7 @@ export default function Services() {
 
   return (
     <section id="services">
-      <div className="max-w-7xl mx-auto px-6 lg:px-6 font-secondary">
+      <div className="max-w-7xl mx-auto px-6 font-secondary mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-sandstone/50 mb-20">
           {/* column 1 */}
           <div className="flex flex-col items-start gap-4 p-6">
@@ -91,7 +91,7 @@ export default function Services() {
               {services.map((service, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <Check className="w-6 h-6 text-sandstone" />
-                  <span className="text-sandstone/90">{service}</span>
+                  <span className="text-sandstone/80">{service}</span>
                 </li>
               ))}
             </ul>

@@ -13,9 +13,9 @@ export default function Services() {
   return (
     <section id="services">
       <div className="max-w-7xl mx-auto px-6 lg:px-6 font-secondary">
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-sandstone mb-20 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-sandstone/50 mb-20">
           {/* column 1 */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-4 p-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="52"
@@ -34,7 +34,7 @@ export default function Services() {
           </div>
 
           {/* column 2 */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-4 p-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="52"
@@ -53,7 +53,7 @@ export default function Services() {
           </div>
 
           {/* column 3 */}
-          <div className="flex flex-col items-start gap-4">
+          <div className="flex flex-col items-start gap-4 p-6">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="52"

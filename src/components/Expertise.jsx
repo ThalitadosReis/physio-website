@@ -27,35 +27,30 @@ export default function Expertise() {
 
   const services = {
     Osteopathy: {
-      icon: "🦴",
       image:
         "https://images.pexels.com/photos/5794058/pexels-photo-5794058.jpeg?_gl=1*182m1q*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY2NDgkajI1JGwwJGgw&w=600&h=400&fit=crop",
       description:
         "Osteopathy is a treatment approach that focuses on the musculoskeletal system. People who choose to see an Osteopath are usually experiencing pain and have difficulty moving. Our osteopaths use hands-on techniques to restore function and promote healing.",
     },
     Massage: {
-      icon: "💆",
       image:
         "https://images.pexels.com/photos/6560304/pexels-photo-6560304.jpeg?_gl=1*1fgzv4z*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY0MTkkajMkbDAkaDA&w=600&h=400&fit=crop",
       description:
         "Therapeutic massage therapy helps relieve muscle tension, reduce stress, and improve circulation. Our licensed massage therapists use various techniques to address your specific needs and promote overall wellness and relaxation.",
     },
     "Manual therapy": {
-      icon: "👐",
       image:
         "https://images.pexels.com/photos/5793911/pexels-photo-5793911.jpeg?_gl=1*1vi9w7z*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY1OTAkajIxJGwwJGgw&w=600&h=400&fit=crop",
       description:
         "Manual therapy involves skilled hand movements and mobilization techniques to treat musculoskeletal conditions. Our therapists use precise movements to improve joint mobility, reduce pain, and restore normal function.",
     },
     Acupuncture: {
-      icon: "🪡",
       image:
         "https://images.pexels.com/photos/6076122/pexels-photo-6076122.jpeg?_gl=1*vw64cw*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY0ODkkajQwJGwwJGgw&w=600&h=400&fit=crop",
       description:
         "Acupuncture is an ancient healing practice that involves inserting thin needles into specific points on the body. This treatment helps balance energy flow, reduce pain, and promote natural healing processes.",
     },
     "Lymphatic Drainage": {
-      icon: "🌊",
       image:
         "https://images.pexels.com/photos/9336024/pexels-photo-9336024.jpeg?_gl=1*nlqdws*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY3NDgkajU5JGwwJGgw&w=600&h=400&fit=crop",
       description:
@@ -92,9 +87,6 @@ export default function Expertise() {
                     : "bg-white hover:bg-sandstone/20 text-sandstone cursor-pointer"
                 }`}
               >
-                <div className="text-2xl opacity-60">
-                  {services[serviceName].icon}
-                </div>
                 <span className="text-2xl font-primary">{serviceName}</span>
               </button>
             ))}
@@ -112,12 +104,7 @@ export default function Expertise() {
                       : "bg-white hover:bg-sandstone/20 text-sandstone cursor-pointer"
                   }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="text-2xl opacity-60">
-                      {services[serviceName].icon}
-                    </div>
-                    <span className="text-2xl font-primary">{serviceName}</span>
-                  </div>
+                  <span className="text-2xl font-primary">{serviceName}</span>
                   <div className="text-2xl transition-transform duration-300">
                     {openAccordionService === serviceName ? (
                       <ChevronDown className="w-6 h-6" />

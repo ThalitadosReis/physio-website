@@ -102,10 +102,10 @@ export default function Services() {
             <div className="relative mx-auto w-full h-[25vh] lg:h-[50vh] rounded-bl-[20vw] overflow-hidden">
               <img
                 src={
-                  "https://images.pexels.com/photos/5793787/pexels-photo-5793787.jpeg?_gl=1*qbt5vc*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwNDYxNDgkbzYkZzEkdDE3NTgwNDYxNDkkajU5JGwwJGgw"
+                  "https://images.pexels.com/photos/5793901/pexels-photo-5793901.jpeg?_gl=1*wv0l01*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgyMTc4MDckbzEwJGcxJHQxNzU4MjE3OTU0JGo2MCRsMCRoMA.."
                 }
                 alt="Physiotherapist"
-                className="w-full h-full object-cover object-[25%_47%] rounded-2xl"
+                className="w-full h-full object-cover object-[45%_5%] rounded-2xl"
               />
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -27,19 +28,19 @@ export default function Hero() {
 
             {/* links */}
             <div className="flex flex-col sm:flex-row gap-8 items-center justify-center lg:justify-start">
-              <a
-                href="#booking"
+              <Link
+                to="/booking"
                 className="uppercase tracking-widest w-fit text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2"
               >
                 <span>Book Appointment</span>
                 <MoveRight className="w-4 h-4" />
-              </a>
+              </Link>
               <span className="hidden sm:block border-l border-sandstone/50 h-12"></span>
               <div className="text-sandstone">
                 <div className="uppercase font-extrabold text-xs">
                   Give us a call:
                 </div>
-                <div className="text-lg"> 076 123 45 67</div>
+                <div className="text-lg">076 123 45 67</div>
               </div>
             </div>
           </div>

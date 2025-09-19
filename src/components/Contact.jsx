@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sendContactEmail } from "../utils/emailService";
-import { Loader2 } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -77,17 +77,7 @@ export default function Contact() {
               {isSubmitted ? (
                 <div className="bg-vanilla/20 border border-vanilla/30 p-8 rounded-2xl text-center">
                   <div className="w-14 h-14 bg-sandstone/80 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <Check absoluteStrokeWidth className="text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-sandstone mb-4">
                     Message Sent!
@@ -99,7 +89,7 @@ export default function Contact() {
                 </div>
               ) : (
                 <div>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label

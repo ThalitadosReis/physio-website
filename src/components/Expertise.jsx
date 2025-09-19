@@ -2,21 +2,20 @@ import { MoveRight, ChevronRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 export default function Expertise() {
-  const [selectedService, setSelectedService] = useState("Osteopathy");
-  const [animationKey, setAnimationKey] = useState(0);
+  const [selectedService, setSelectedService] = useState("Chiropractic");
   const [openAccordionService, setOpenAccordionService] = useState(null);
 
   const servicesList = [
-    "Osteopathy",
-    "Massage",
-    "Manual therapy",
+    "Chiropractic",
     "Acupuncture",
+    "Massage Therapy",
+    "Physiotherapy",
+    "Osteopathy",
     "Lymphatic Drainage",
   ];
 
   const handleServiceClick = (serviceName) => {
     setSelectedService(serviceName);
-    setAnimationKey((prev) => prev + 1);
   };
 
   const handleAccordionClick = (serviceName) => {
@@ -26,23 +25,11 @@ export default function Expertise() {
   };
 
   const services = {
-    Osteopathy: {
-      image:
-        "https://images.pexels.com/photos/5794058/pexels-photo-5794058.jpeg?_gl=1*182m1q*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY2NDgkajI1JGwwJGgw&w=600&h=400&fit=crop",
-      description:
-        "Osteopathy is a treatment approach that focuses on the musculoskeletal system. People who choose to see an Osteopath are usually experiencing pain and have difficulty moving. Our osteopaths use hands-on techniques to restore function and promote healing.",
-    },
-    Massage: {
-      image:
-        "https://images.pexels.com/photos/6560304/pexels-photo-6560304.jpeg?_gl=1*1fgzv4z*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY0MTkkajMkbDAkaDA&w=600&h=400&fit=crop",
-      description:
-        "Therapeutic massage therapy helps relieve muscle tension, reduce stress, and improve circulation. Our licensed massage therapists use various techniques to address your specific needs and promote overall wellness and relaxation.",
-    },
-    "Manual therapy": {
+    Chiropractic: {
       image:
         "https://images.pexels.com/photos/5793911/pexels-photo-5793911.jpeg?_gl=1*1vi9w7z*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY1OTAkajIxJGwwJGgw&w=600&h=400&fit=crop",
       description:
-        "Manual therapy involves skilled hand movements and mobilization techniques to treat musculoskeletal conditions. Our therapists use precise movements to improve joint mobility, reduce pain, and restore normal function.",
+        "Chiropractic care focuses on diagnosing and treating musculoskeletal disorders, particularly those related to the spine. Our chiropractors use hands-on techniques to adjust the spine and improve alignment, helping to alleviate pain and enhance overall function.",
     },
     Acupuncture: {
       image:
@@ -50,6 +37,25 @@ export default function Expertise() {
       description:
         "Acupuncture is an ancient healing practice that involves inserting thin needles into specific points on the body. This treatment helps balance energy flow, reduce pain, and promote natural healing processes.",
     },
+    "Massage Therapy": {
+      image:
+        "https://images.pexels.com/photos/6560304/pexels-photo-6560304.jpeg?_gl=1*1fgzv4z*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY0MTkkajMkbDAkaDA&w=600&h=400&fit=crop",
+      description:
+        "Therapeutic massage therapy helps relieve muscle tension, reduce stress, and improve circulation. Our licensed massage therapists use various techniques to address your specific needs and promote overall wellness and relaxation.",
+    },
+    Physiotherapy: {
+      image:
+        "https://images.pexels.com/photos/5794057/pexels-photo-5794057.jpeg?_gl=1*m24ch1*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgyMjQwNDMkbzExJGcxJHQxNzU4MjI0MDQ0JGo1OSRsMCRoMA..&w=600&h=400&fit=crop",
+      description:
+        "Physiotherapy focuses on restoring movement and function through physical methods such as exercise, manual therapy, and education. Our physiotherapists work with you to develop personalized treatment plans to help you recover from injuries and improve your overall mobility.",
+    },
+    Osteopathy: {
+      image:
+        "https://images.pexels.com/photos/5794058/pexels-photo-5794058.jpeg?_gl=1*182m1q*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY2NDgkajI1JGwwJGgw&w=600&h=400&fit=crop",
+      description:
+        "Osteopathy is a treatment approach that focuses on the musculoskeletal system. People who choose to see an Osteopath are usually experiencing pain and have difficulty moving. Our osteopaths use hands-on techniques to restore function and promote healing.",
+    },
+
     "Lymphatic Drainage": {
       image:
         "https://images.pexels.com/photos/9336024/pexels-photo-9336024.jpeg?_gl=1*nlqdws*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwOTYyODgkbzkkZzEkdDE3NTgwOTY3NDgkajU5JGwwJGgw&w=600&h=400&fit=crop",
@@ -147,10 +153,7 @@ export default function Expertise() {
 
           {/* desktop-right */}
           <div className="relative hidden lg:block">
-            <div
-              key={animationKey}
-              className="animate-in slide-in-from-bottom-4 fade-in duration-700 ease-out"
-            >
+            <div className="animate-in slide-in-from-bottom-4 fade-in duration-700 ease-out">
               {/* image */}
               <div className="mb-6 overflow-hidden">
                 <img

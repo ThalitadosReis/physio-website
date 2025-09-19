@@ -26,13 +26,20 @@ const createTransporter = () => {
 // Contact form endpoint
 app.post("/api/contact", async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, phone, subject, message } = req.body;
 
-    console.log("Received contact form submission:", { name, email });
+    console.log("Received contact form submission:", {
+      name,
+      email,
+      phone,
+      subject,
+      message: message ? 'has message' : 'no message',
+      fullBody: req.body
+    });
 
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
       console.log("Email service not configured - logging form data:");
-      console.log({ name, email, message });
+      console.log({ name, email, phone, subject, message });
       return res.json({
         success: true,
         message:
@@ -46,18 +53,27 @@ app.post("/api/contact", async (req, res) => {
       from: process.env.GMAIL_USER,
       to: process.env.EMAIL_TO || "dosreistha@gmail.com",
       replyTo: email,
-      subject: `New Contact Form: From ${name}`,
+      subject: `New Contact Form: ${subject || 'No Subject'} - From ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : '<p><strong>Phone:</strong> Not provided</p>'}
+        <p><strong>Subject:</strong> ${subject || 'No subject selected'}</p>
         <p><strong>Message:</strong></p>
         <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
-          ${message.replace(/\n/g, "<br>")}
+          ${message ? message.replace(/\n/g, "<br>") : 'No message provided'}
         </div>
         <hr>
         <p><small>Submitted: ${new Date().toLocaleString()}</small></p>
       `,
     };
+
+    console.log("Mail options being sent:", {
+      subject: mailOptions.subject,
+      hasPhone: !!phone,
+      hasSubject: !!subject,
+      hasMessage: !!message
+    });
 
     console.log("Sending contact email...");
     const info = await transporter.sendMail(mailOptions);

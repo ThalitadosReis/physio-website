@@ -41,7 +41,7 @@ export default function AboutPage({ openBookingModal }) {
               <h3 className="uppercase text-sandstone tracking-widest text-xs mt-2">
                 Meet Our Team
               </h3>
-              <h1 className="font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl mt-6">
+              <h1 className="text-center font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl mt-6">
                 Expert Care You Can Trust
               </h1>
               <p className="max-w-4xl text-sandstone/80 text-center text-lg lg:text-xl mt-2">

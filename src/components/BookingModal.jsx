@@ -190,7 +190,7 @@ export default function BookingModal({
         <div className="grid lg:grid-cols-[45%_55%] max-h-[90vh] overflow-y-auto">
           {/* left-side image */}
           <div className="lg:p-0 lg:m-0">
-            <div className="rounded-2xl lg:rounded-r-none lg:rounded-l-3xl overflow-hidden h-64 lg:h-full">
+            <div className="rounded-t-2xl lg:rounded-r-none lg:rounded-l-3xl overflow-hidden h-64 lg:h-full">
               <img
                 src="https://images.pexels.com/photos/5793784/pexels-photo-5793784.jpeg?_gl=1*ipudto*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgyMTc4MDckbzEwJGcxJHQxNzU4MjE5Mzk5JGo0NiRsMCRoMA"
                 alt="Booking"

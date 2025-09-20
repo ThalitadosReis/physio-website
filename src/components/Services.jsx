@@ -1,14 +1,7 @@
 import { Check } from "lucide-react";
+import { generalServices } from "../data/servicelist";
 
 export default function Services() {
-  const services = [
-    "Personalized physiotherapy sessions",
-    "Post-injury rehabilitation",
-    "Sports performance optimization",
-    "Pain management programs",
-    "Mobility & strength training",
-    "Preventive care & wellness plans",
-  ];
 
   return (
     <section id="services">
@@ -88,7 +81,7 @@ export default function Services() {
 
             {/* services list */}
             <ul className="space-y-1">
-              {services.map((service, index) => (
+              {generalServices.map((service, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <Check className="w-6 h-6 text-sandstone" />
                   <span className="text-sandstone/80">{service}</span>

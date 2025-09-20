@@ -409,7 +409,7 @@ export default function BookingModal({
                         Submitting...
                       </span>
                     ) : (
-                      "Book an Appointment"
+                      "Book Appointment"
                     )}
                   </button>
 

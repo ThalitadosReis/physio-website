@@ -141,7 +141,7 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         rows={4}
-                        className="w-full px-4 py-3 border border-sandstone/20 rounded-3xl"
+                        className="w-full px-4 py-3 border border-sandstone/20 resize-none rounded-3xl"
                       ></textarea>
                     </div>
 

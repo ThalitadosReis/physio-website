@@ -1,10 +1,19 @@
-import { MoveRight } from "lucide-react";
+import { MoveRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({
+  openBookingModal,
+  currentPage,
+  setCurrentPage,
+}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState("home");
+
+  const handlePageChange = (page) => {
+    if (setCurrentPage) {
+      setCurrentPage(page);
+    }
+  };
 
   return (
     <nav className="bg-porcelain fixed w-full top-0 z-50">
@@ -26,54 +35,54 @@ export default function Navbar() {
           {/* middle */}
           <div className="flex-1 flex justify-center">
             <div className="hidden lg:flex items-center space-x-8">
-              <a
-                href="/"
-                onClick={() => setCurrentPage("home")}
+              <Link
+                to="/"
+                onClick={() => handlePageChange("home")}
                 className={`hover:text-vanilla transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-vanilla after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full ${
                   currentPage === "home" ? "text-vanilla after:w-full" : ""
                 }`}
               >
                 Home
-              </a>
-              <a
-                href="#about"
-                onClick={() => setCurrentPage("about")}
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => handlePageChange("about")}
                 className={`hover:text-vanilla transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-vanilla after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full ${
                   currentPage === "about" ? "text-vanilla after:w-full" : ""
                 }`}
               >
                 About
-              </a>
-              <a
-                href="#services"
-                onClick={() => setCurrentPage("services")}
+              </Link>
+              <Link
+                to="/services"
+                onClick={() => handlePageChange("services")}
                 className={`hover:text-vanilla transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-vanilla after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full ${
                   currentPage === "services" ? "text-vanilla after:w-full" : ""
                 }`}
               >
                 Services
-              </a>
-              <a
-                href="#contact"
-                onClick={() => setCurrentPage("contact")}
+              </Link>
+              <Link
+                to="/contact"
+                onClick={() => handlePageChange("contact")}
                 className={`hover:text-vanilla transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-vanilla after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full ${
                   currentPage === "contact" ? "text-vanilla after:w-full" : ""
                 }`}
               >
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="flex items-center">
             <div className="hidden lg:block">
-              <Link
-                to="/booking"
+              <button
+                onClick={openBookingModal}
                 className="uppercase tracking-widest w-fit text-xs border  border-transparent bg-sandstone text-white hover:bg-porcelain hover:text-sandstone hover:border-sandstone/50 px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2"
               >
                 <span>Book Appointment</span>
                 <MoveRight className="w-4 h-4" />
-              </Link>
+              </button>
             </div>
 
             <div className="lg:hidden flex items-center space-x-4">
@@ -81,28 +90,11 @@ export default function Navbar() {
                 onClick={() => setIsOpen(!isOpen)}
                 className="hover:text-vanilla focus:outline-none p-2"
               >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  {isOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
+                {isOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </button>
             </div>
           </div>
@@ -118,32 +110,32 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="block hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 About
-              </a>
-              <a
-                href="#services"
+              </Link>
+              <Link
+                to="/services"
                 className="block hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Services
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="block hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Contact
-              </a>
+              </Link>
               <div className="pt-2">
-                <Link
-                  to="/booking"
-                  className="uppercase tracking-widest text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2"
+                <button
+                  onClick={openBookingModal}
+                  className="uppercase tracking-widest text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2 w-full"
                 >
                   <span>Book Appointment</span>
                   <MoveRight className="w-4 h-4" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>

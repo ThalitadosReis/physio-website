@@ -1,7 +1,6 @@
 import { MoveRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
-export default function Hero() {
+export default function Hero({ openBookingModal }) {
   return (
     <section
       id="home"
@@ -28,13 +27,13 @@ export default function Hero() {
 
             {/* links */}
             <div className="flex flex-col sm:flex-row gap-8 items-center justify-center lg:justify-start">
-              <Link
-                to="/booking"
+              <button
+                onClick={openBookingModal}
                 className="uppercase tracking-widest w-fit text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2"
               >
                 <span>Book Appointment</span>
                 <MoveRight className="w-4 h-4" />
-              </Link>
+              </button>
               <span className="hidden sm:block border-l border-sandstone/50 h-12"></span>
               <div className="text-sandstone">
                 <div className="uppercase font-extrabold text-xs">

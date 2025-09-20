@@ -1,6 +1,7 @@
 import { MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export default function About() {
+export default function About({ setNavbarPage }) {
   return (
     <section id="about" className="pt-20">
       <div className="max-w-7xl mx-auto px-6 font-secondary">
@@ -61,13 +62,14 @@ export default function About() {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
 
-            <a
-              href="#about"
+            <Link
+              to="/about"
+              onClick={() => setNavbarPage && setNavbarPage("about")}
               className="uppercase tracking-widest w-fit text-xs border border-transparent bg-vanilla/50 text-white hover:bg-porcelain hover:text-sandstone hover:border-sandstone/50 px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2"
             >
               <span>Learn more</span>
               <MoveRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

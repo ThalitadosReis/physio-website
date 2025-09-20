@@ -76,7 +76,7 @@ export default function ContactPage({ openBookingModal }) {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
             {/* left-image */}
             <div className="lg:p-0 lg:m-0">
-              <div className="w-full h-[25vh] lg:h-[50vh] rounded-2xl lg:rounded-r-none lg:rounded-l-2xl overflow-hidden">
+              <div className="w-full rounded-2xl lg:rounded-r-none lg:rounded-l-2xl overflow-hidden">
                 <img
                   src="https://images.pexels.com/photos/5793787/pexels-photo-5793787.jpeg?_gl=1*qbt5vc*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwNDYxNDgkbzYkZzEkdDE3NTgwNDYxNDkkajU5JGwwJGgw"
                   alt="Contact Physio+"

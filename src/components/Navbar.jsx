@@ -1,6 +1,7 @@
 import { MoveRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 export default function Navbar({
   openBookingModal,
@@ -21,13 +22,7 @@ export default function Navbar({
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex items-center space-x-2">
-              <img
-                src={
-                  "https://res.cloudinary.com/douen1dwv/image/upload/v1758047929/default/lotus_2_zntprp.png"
-                }
-                alt="Logo"
-                className="h-10 "
-              />
+              <Logo size="small" className="h-10" />
               <span className="text-xl font-primary">Physio+</span>
             </div>
           </div>

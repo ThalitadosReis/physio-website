@@ -34,7 +34,7 @@ export default function Expertise({ setNavbarPage }) {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-[30%_65%] justify-between">
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-16 justify-between">
           {/* desktop left-sidebar */}
           <div className="hidden lg:block space-y-2">
             {servicesList.map((serviceName) => (
@@ -113,7 +113,7 @@ export default function Expertise({ setNavbarPage }) {
                 <img
                   src={servicesData[selectedService].image}
                   alt={selectedService}
-                  className="w-full object-contain rounded-2xl shadow-lg"
+                  className="w-full h-[40vh] object-cover rounded-2xl shadow-lg"
                 />
               </div>
 

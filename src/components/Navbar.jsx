@@ -14,6 +14,7 @@ export default function Navbar({
     if (setCurrentPage) {
       setCurrentPage(page);
     }
+    setIsOpen(false);
   };
 
   return (
@@ -101,31 +102,38 @@ export default function Navbar({
             <div className="px-2 pt-2 pb-4 space-y-1">
               <Link
                 to="/"
+                onClick={() => handlePageChange("home")}
                 className="block hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Home
               </Link>
               <Link
                 to="/about"
+                onClick={() => handlePageChange("about")}
                 className="block hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 About
               </Link>
               <Link
                 to="/services"
+                onClick={() => handlePageChange("services")}
                 className="block hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Services
               </Link>
               <Link
                 to="/contact"
+                onClick={() => handlePageChange("contact")}
                 className="block hover:text-vanilla px-3 py-2 rounded-md transition-colors"
               >
                 Contact
               </Link>
               <div className="pt-2">
                 <button
-                  onClick={openBookingModal}
+                  onClick={() => {
+                    openBookingModal();
+                    setIsOpen(false);
+                  }}
                   className="uppercase tracking-widest text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2 w-full"
                 >
                   <span>Book Appointment</span>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sendContactEmail } from "../utils/emailService";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Loader2, X } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,17 +11,23 @@ export default function Contact() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+    // Clear error message when user starts typing
+    if (submitMessage) {
+      setSubmitMessage("");
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage("");
 
     try {
       const result = await sendContactEmail(formData);
@@ -35,10 +41,11 @@ export default function Contact() {
         });
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
-        console.error("Failed to send email:", result.error);
+        setSubmitMessage("Failed to send message. Please try again.");
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Form submission error:", error);
+      setSubmitMessage("An error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -159,6 +166,12 @@ export default function Contact() {
                       )}
                     </button>
                   </form>
+                  {submitMessage && (
+                    <div className="mt-4 p-3 rounded-lg text-sm flex items-center gap-2 bg-red-100 text-red-800 border border-red-200">
+                      <X className="h-4 w-4 text-red-600" />
+                      {submitMessage}
+                    </div>
+                  )}
                 </div>
               )}
             </div>

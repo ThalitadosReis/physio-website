@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MoveRight, Check, Loader2, ChevronDown } from "lucide-react";
+import { MoveRight, Check, Loader2, ChevronDown, X } from "lucide-react";
 import { sendContactEmail } from "../utils/emailService";
 
 export default function ContactPage({ openBookingModal }) {
@@ -13,17 +13,23 @@ export default function ContactPage({ openBookingModal }) {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+    // Clear error message when user starts typing
+    if (submitMessage) {
+      setSubmitMessage("");
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage("");
 
     console.log("Contact form data being sent:", formData);
 
@@ -41,10 +47,10 @@ export default function ContactPage({ openBookingModal }) {
         });
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
-        console.error("Failed to send email:", result.error);
+        setSubmitMessage("Failed to send message. Please try again.");
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      setSubmitMessage("An error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -117,7 +123,8 @@ export default function ContactPage({ openBookingModal }) {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <div className="relative">
@@ -218,7 +225,14 @@ export default function ContactPage({ openBookingModal }) {
                         </>
                       )}
                     </button>
-                  </form>
+                    </form>
+                    {submitMessage && (
+                      <div className="mt-4 p-3 rounded-lg text-sm flex items-center gap-2 bg-red-100 text-red-800 border border-red-200">
+                        <X className="h-4 w-4 text-red-600" />
+                        {submitMessage}
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             </div>

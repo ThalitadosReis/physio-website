@@ -58,6 +58,11 @@ function AppContent() {
     }
   }, [location.pathname]);
 
+  // scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <div className="flex flex-col min-h-screen bg-porcelain">
       <Navbar

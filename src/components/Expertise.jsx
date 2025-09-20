@@ -44,7 +44,7 @@ export default function Expertise({ setNavbarPage }) {
                 className={`w-full p-6 rounded-2xl text-left transition-all duration-300 flex items-center gap-4 ${
                   selectedService === serviceName
                     ? "bg-sandstone/20 text-white"
-                    : "bg-white hover:bg-sandstone/20 text-sandstone cursor-pointer"
+                    : "bg-white hover:bg-sandstone/20 text-sandstone"
                 }`}
               >
                 <span className="text-2xl font-primary">{serviceName}</span>
@@ -61,7 +61,7 @@ export default function Expertise({ setNavbarPage }) {
                   className={`w-full p-6 rounded-2xl text-left transition-all duration-300 flex items-center justify-between ${
                     openAccordionService === serviceName
                       ? "bg-sandstone/20 text-white"
-                      : "bg-white hover:bg-sandstone/20 text-sandstone cursor-pointer"
+                      : "bg-white hover:bg-sandstone/20 text-sandstone"
                   }`}
                 >
                   <span className="text-2xl font-primary">{serviceName}</span>

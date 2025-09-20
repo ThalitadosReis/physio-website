@@ -148,7 +148,7 @@ export default function ContactPage({ openBookingModal }) {
                           value={formData.subject}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 pr-10 border border-sandstone/20 rounded-full focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none cursor-pointer"
+                          className="w-full px-4 py-3 pr-10 border border-sandstone/20 rounded-full focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none"
                         >
                           <option value="">Select a topic</option>
                           <option value="Appointment">Book Appointment</option>

@@ -334,7 +334,7 @@ export default function BookingModal({
                     <div className="grid grid-cols-2 gap-2">
                       <div className="relative">
                         <select
-                          className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none cursor-pointer transition-colors duration-200 ${
+                          className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none transition-colors duration-200 ${
                             timeData.hour ? "text-black" : "text-sandstone/50"
                           }`}
                           value={timeData.hour}
@@ -360,7 +360,7 @@ export default function BookingModal({
 
                       <div className="relative">
                         <select
-                          className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none cursor-pointer transition-colors duration-200 ${
+                          className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none transition-colors duration-200 ${
                             timeData.minute ? "text-black" : "text-sandstone/50"
                           } `}
                           value={timeData.minute}

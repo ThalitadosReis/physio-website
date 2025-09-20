@@ -178,7 +178,7 @@ export default function ServicePage({ openBookingModal }) {
                   <button
                     key={serviceName}
                     onClick={() => handleServiceClick(serviceName)}
-                    className={`w-full p-3 text-left transition-all duration-300 flex items-center justify-between cursor-pointer rounded-lg ${
+                    className={`w-full p-3 text-left transition-all duration-300 flex items-center justify-between rounded-lg ${
                       selectedService === serviceName
                         ? "text-base text-sandstone"
                         : "text-sm text-sandstone/80 hover:text-sandstone"
@@ -216,7 +216,7 @@ export default function ServicePage({ openBookingModal }) {
                         type="text"
                         name="name"
                         placeholder="Your Name"
-                        className="w-full px-4 py-2 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50 text-sm"
+                        className="w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50"
                         value={formData.name}
                         onChange={handleInputChange}
                         required
@@ -228,7 +228,7 @@ export default function ServicePage({ openBookingModal }) {
                         type="email"
                         name="email"
                         placeholder="Your Email"
-                        className="w-full px-4 py-2 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50 text-sm"
+                        className="w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50"
                         value={formData.email}
                         onChange={handleInputChange}
                         required
@@ -240,7 +240,7 @@ export default function ServicePage({ openBookingModal }) {
                         type="tel"
                         name="phone"
                         placeholder="Your Phone"
-                        className="w-full px-4 py-2 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50 text-sm"
+                        className="w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50"
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
@@ -250,7 +250,7 @@ export default function ServicePage({ openBookingModal }) {
                     <div className="relative">
                       <select
                         name="service"
-                        className={`w-full px-4 py-2 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none cursor-pointer text-sm ${
+                        className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none ${
                           formData.service === ""
                             ? "text-sandstone/50"
                             : "text-black"
@@ -273,7 +273,7 @@ export default function ServicePage({ openBookingModal }) {
                       <button
                         type="button"
                         onClick={() => setShowCalendar(!showCalendar)}
-                        className="w-full px-4 py-2 border border-sandstone/20 rounded-full flex items-center justify-between bg-transparent text-sm"
+                        className="w-full px-4 py-3 border border-sandstone/20 rounded-full flex items-center justify-between bg-transparent"
                       >
                         <span
                           className={
@@ -308,7 +308,7 @@ export default function ServicePage({ openBookingModal }) {
                     <div className="grid grid-cols-2 gap-1">
                       <div className="relative">
                         <select
-                          className={`w-full px-4 py-2 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none cursor-pointer text-sm ${
+                          className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none ${
                             timeData.hour ? "text-black" : "text-sandstone/50"
                           }`}
                           value={timeData.hour}
@@ -332,7 +332,7 @@ export default function ServicePage({ openBookingModal }) {
 
                       <div className="relative">
                         <select
-                          className={`w-full px-4 py-2 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none cursor-pointer text-sm ${
+                          className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none ${
                             timeData.minute ? "text-black" : "text-sandstone/50"
                           }`}
                           value={timeData.minute}
@@ -358,7 +358,7 @@ export default function ServicePage({ openBookingModal }) {
                     <div>
                       <textarea
                         name="message"
-                        className="w-full px-4 py-3 border border-sandstone/20 rounded-2xl bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50 resize-none text-sm"
+                        className="w-full px-4 py-3 border border-sandstone/20 rounded-3xl bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50 resize-none"
                         placeholder="Additional information (optional)"
                         value={formData.message}
                         onChange={handleInputChange}
@@ -369,7 +369,7 @@ export default function ServicePage({ openBookingModal }) {
                     <div>
                       <button
                         type="submit"
-                        className="uppercase tracking-widest w-full text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone py-2 rounded-full duration-200 flex items-center justify-center gap-2"
+                        className="flex items-center justify-center w-full py-3 uppercase tracking-widest text-xs rounded-full bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone duration-200 gap-2"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? (
@@ -403,7 +403,7 @@ export default function ServicePage({ openBookingModal }) {
                     className={`w-full p-6 rounded-2xl text-left transition-all duration-300 flex items-center justify-between ${
                       openAccordionService === serviceName
                         ? "bg-sandstone/20 text-white"
-                        : "bg-white hover:bg-sandstone/20 text-sandstone cursor-pointer"
+                        : "bg-white hover:bg-sandstone/20 text-sandstone"
                     }`}
                   >
                     <span className="text-xl font-primary">{serviceName}</span>
@@ -471,7 +471,7 @@ export default function ServicePage({ openBookingModal }) {
 
                       <button
                         onClick={() => openBookingModal(serviceName)}
-                        className="uppercase tracking-widest w-full text-xs border border-transparent bg-sandstone text-white hover:bg-transparent hover:text-sandstone hover:border-sandstone/50 px-6 py-3 rounded-full duration-200 flex items-center justify-center gap-2 mt-4"
+                        className="uppercase tracking-widest w-full text-xs border border-transparent bg-sandstone text-white hover:bg-transparent hover:text-sandstone hover:border-sandstone/50 px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2 mt-4"
                       >
                         <span>Book {serviceName}</span>
                         <MoveRight className="w-4 h-4" />

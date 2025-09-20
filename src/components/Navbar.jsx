@@ -134,7 +134,7 @@ export default function Navbar({
                     openBookingModal();
                     setIsOpen(false);
                   }}
-                  className="uppercase tracking-widest text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-12 py-4 rounded-full duration-200 flex items-center justify-center gap-2 w-full"
+                  className="uppercase tracking-widest text-xs bg-sandstone text-white hover:bg-vanilla/40 hover:text-sandstone px-8 py-4 rounded-full duration-200 flex items-center justify-center gap-2 w-full"
                 >
                   <span>Book Appointment</span>
                   <MoveRight className="w-4 h-4" />

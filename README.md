@@ -28,36 +28,6 @@ A modern, responsive physiotherapy clinic website built with React, featuring on
 - **CORS** - Cross-origin resource sharing middleware
 - **dotenv** - Environment variable management
 
-## 📁 Project Structure
-
-```
-physio-website/
-├── src/
-│   ├── components/          # Reusable React components
-│   │   ├── About.jsx
-│   │   ├── BookingModal.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Expertise.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Navbar.jsx
-│   │   └── Services.jsx
-│   ├── pages/               # Page components
-│   │   ├── AboutPage.jsx
-│   │   ├── ContactPage.jsx
-│   │   └── ServicePage.jsx
-│   ├── data/                # Data and configuration
-│   │   └── servicelist.js
-│   ├── utils/               # Utility functions
-│   │   └── emailService.js
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── server.js                # Express server for email functionality
-├── package.json 
-└── README.md
-```
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -104,10 +74,6 @@ physio-website/
    npm run dev
    ```
 
-3. **Access the application**
-   - Frontend: `http://localhost:5173`
-   - Backend API: `http://localhost:3001`
-
 ### Production Build
 
 ```bash
@@ -128,13 +94,6 @@ The application supports two types of email notifications:
 - Handles appointment requests
 - Includes service selection and preferred date/time
 - Supports additional information field
-
-## 🔧 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint code analysis
 
 ## 📱 Pages and Components
 

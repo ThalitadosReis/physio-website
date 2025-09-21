@@ -2,6 +2,16 @@
 
 A modern, responsive physiotherapy clinic website built with React, featuring online booking, service information, and contact management.
 
+## 🌟 Live Demo
+
+**[View Live Demo](https://your-demo-link.vercel.app](https://physioplus-website.vercel.app/)](https://physioplus-website.vercel.app/))**
+
+> 📱 Try the responsive design on mobile, tablet, and desktop!
+
+## 📸 Screenshots
+
+![Desktop Screenshot](https://res.cloudinary.com/douen1dwv/image/upload/v1758460591/default/179shots_so_vso3zu.png)
+
 ## 🚀 Features
 
 - **Responsive Design**: Mobile-first approach with desktop optimization
@@ -15,27 +25,19 @@ A modern, responsive physiotherapy clinic website built with React, featuring on
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 19** - Latest React with modern hooks and features
-- **React Router DOM** - Client-side routing and navigation
-- **Tailwind CSS 4** - Modern utility-first CSS framework
-- **Lucide React** - Beautiful, customizable icons
-- **React Day Picker** - Accessible date picker component
-- **Vite** - Lightning-fast build tool and dev server
+- **React 19**
+- **Tailwind CSS 4** 
+- **Lucide React** 
+- **React Day Picker**
+- **Vite**
 
 ### Backend
-- **Express.js** - Minimal web framework for Node.js
-- **Nodemailer** - Email sending functionality
-- **CORS** - Cross-origin resource sharing middleware
-- **dotenv** - Environment variable management
+- **Express.js**
+- **Nodemailer**
+- **CORS**
+- **dotenv**
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn package manager
-- Gmail account (for email functionality)
-
-### Installation
+## 📦 Installation
 
 1. **Clone the repository**
    ```bash
@@ -74,13 +76,6 @@ A modern, responsive physiotherapy clinic website built with React, featuring on
    npm run dev
    ```
 
-### Production Build
-
-```bash
-npm run build
-npm run preview
-```
-
 ## 📧 Email Configuration
 
 The application supports two types of email notifications:
@@ -95,19 +90,6 @@ The application supports two types of email notifications:
 - Includes service selection and preferred date/time
 - Supports additional information field
 
-## 📱 Pages and Components
-
-### Pages
-- **Home** - Hero, services overview, team introduction
-- **About** - Detailed team information, values, and mission
-- **Services** - Interactive service browser with booking functionality
-- **Contact** - Contact information and inquiry form
-
-### Key Components
-- **BookingModal** - Complete booking system with date/time selection
-- **Navbar** - Responsive navigation with active page tracking
-- **Expertise** - Interactive service showcase
-- **Footer** - Contact information and quick links
 
 ## 🚦 API Endpoints
 
@@ -116,4 +98,3 @@ Submit contact form with subject categorization
 
 ### POST `/api/booking`
 Submit booking request with date/time preferences
-

@@ -146,24 +146,20 @@ export default function ServicePage({ openBookingModal }) {
   return (
     <div className="pt-16">
       {/* services section */}
-      <section className="py-20">
+      <section className="py-10 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 font-secondary">
           {/* header */}
-          <div className="space-y-15 mb-10">
-            <div className="space-y-1 flex flex-col items-center text-center mb-15">
-              <img
-                src="https://res.cloudinary.com/douen1dwv/image/upload/v1758047929/default/lotus_2_zntprp.png"
-                alt="Logo"
-                className="h-12"
-              />
-              <h1 className="font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl mt-6">
+          <div className="mb-8">
+            <div className="flex flex-col justify-center items-center">
+              <img src="/logo.png" alt="Logo" className="h-12" />
+              <h1 className="text-center font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl mt-4">
                 Treatment Options
               </h1>
-              <p className="max-w-4xl text-sandstone/80 text-center text-lg lg:text-xl mt-2">
+              <h2 className="max-w-4xl text-sandstone/80 text-center md:text-lg lg:text-xl mt-2">
                 Choose from our range of specialized treatments, each designed
                 to address specific health concerns and promote overall
                 wellbeing.
-              </p>
+              </h2>
             </div>
           </div>
 
@@ -204,7 +200,7 @@ export default function ServicePage({ openBookingModal }) {
                     <h4 className="text-lg font-primary text-sandstone mb-2">
                       Booking Successful!
                     </h4>
-                    <p className="text-sandstone/80 text-sm">
+                    <p className="text-sm text-sandstone/80">
                       We'll contact you within 24 hours to confirm your
                       appointment.
                     </p>
@@ -394,20 +390,22 @@ export default function ServicePage({ openBookingModal }) {
               </div>
             </div>
 
-            {/* small-screen accordion */}
-            <div className="lg:hidden mb-8 space-y-2">
+            {/* small screen-accordion */}
+            <div className="lg:hidden space-y-2">
               {servicesList.map((serviceName) => (
                 <div key={serviceName}>
                   <button
                     onClick={() => handleAccordionClick(serviceName)}
-                    className={`w-full p-6 rounded-2xl text-left transition-all duration-300 flex items-center justify-between ${
+                    className={`flex items-center justify-between w-full p-4 md:p-6 rounded-2xl transition-all ${
                       openAccordionService === serviceName
                         ? "bg-sandstone/20 text-white"
                         : "bg-white hover:bg-sandstone/20 text-sandstone"
                     }`}
                   >
-                    <span className="text-xl font-primary">{serviceName}</span>
-                    <div className="text-2xl transition-transform duration-300">
+                    <span className="text-xl md:text-2xl font-primary">
+                      {serviceName}
+                    </span>
+                    <div className="transition-transform duration-300">
                       {openAccordionService === serviceName ? (
                         <ChevronDown className="w-6 h-6" />
                       ) : (
@@ -424,58 +422,60 @@ export default function ServicePage({ openBookingModal }) {
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <img
-                      src={servicesData[serviceName].image}
-                      alt={serviceName}
-                      className="w-full h-[25vh] object-cover object-[25%_20%] rounded-t-2xl"
-                    />
-                    <div className="bg-white p-6 rounded-b-2xl space-y-4">
-                      <div className="space-y-3">
-                        <p className="text-sandstone/80 leading-snug">
-                          {servicesData[serviceName].description}
-                        </p>
-                        <h4 className="font-primary text-sandstone text-lg">
-                          Key Benefits:
-                        </h4>
-                        <ul className="space-y-1">
-                          {servicesData[serviceName].benefits.map(
-                            (benefit, idx) => (
-                              <li
-                                key={idx}
-                                className="flex items-start gap-2 text-sm"
-                              >
-                                <Star className="w-4 h-4 text-vanilla mt-0.5 flex-shrink-0" />
-                                <span className="text-sandstone/80">
-                                  {benefit}
-                                </span>
-                              </li>
-                            )
-                          )}
-                        </ul>
+                    <div className="space-y-6">
+                      <div className="w-full h-[30vh] lg:h-[45vh] overflow-hidden">
+                        <img
+                          src={servicesData[serviceName].image}
+                          alt={serviceName}
+                          className="w-full h-full object-cover object-[25%_45%] rounded-2xl"
+                        />
                       </div>
+                      <div className="space-y-4">
+                        <div className="space-y-3">
+                          <p className="text-sm text-sandstone/80 text-justify">
+                            {servicesData[serviceName].description}
+                          </p>
+                          <h4 className="font-primary text-sandstone text-lg">
+                            Key Benefits:
+                          </h4>
+                          <ul className="grid md:grid-cols-2 space-y-1.5">
+                            {servicesData[serviceName].benefits.map(
+                              (benefit, idx) => (
+                                <li
+                                  key={idx}
+                                  className="text-sm flex items-center text-sandstone/80 gap-4"
+                                >
+                                  <Star strokeWidth={2.5} className="w-4 h-4" />
+                                  <span>{benefit}</span>
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
 
-                      <div className="grid grid-cols-2 gap-4 pt-2">
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-vanilla" />
-                          <span className="text-sm text-sandstone/80">
-                            {servicesData[serviceName].duration}
-                          </span>
+                        <div className="grid grid-cols-2 gap-4 pt-2">
+                          <div className="flex items-center gap-2">
+                            <Clock className="w-4 h-4 text-vanilla" />
+                            <span className="text-sm text-sandstone/80">
+                              {servicesData[serviceName].duration}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Users className="w-4 h-4 text-vanilla" />
+                            <span className="text-sm text-sandstone/80">
+                              {servicesData[serviceName].price}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Users className="w-4 h-4 text-vanilla" />
-                          <span className="text-sm text-sandstone/80">
-                            {servicesData[serviceName].price}
-                          </span>
-                        </div>
+
+                        <button
+                          onClick={() => openBookingModal(serviceName)}
+                          className="w-full flex items-center justify-center uppercase tracking-widest px-8 py-3 rounded-full text-xs gap-2 border border-transparent bg-sandstone text-white hover:bg-transparent hover:text-sandstone hover:border-sandstone/50 duration-200"
+                        >
+                          <span>Book {serviceName}</span>
+                          <MoveRight className="w-4 h-4" />
+                        </button>
                       </div>
-
-                      <button
-                        onClick={() => openBookingModal(serviceName)}
-                        className="uppercase tracking-widest w-full text-xs border border-transparent bg-sandstone text-white hover:bg-transparent hover:text-sandstone hover:border-sandstone/50 px-8 py-3 rounded-full duration-200 flex items-center justify-center gap-2 mt-4"
-                      >
-                        <span>Book {serviceName}</span>
-                        <MoveRight className="w-4 h-4" />
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -496,49 +496,44 @@ export default function ServicePage({ openBookingModal }) {
 
                 {/* content */}
                 <div className="bg-white rounded-2xl p-8 space-y-6">
-                  <h1 className="text-4xl font-primary text-sandstone">
+                  <h1 className="text-5xl font-primary text-sandstone">
                     {selectedService}
                   </h1>
-                  <p className="text-sandstone/80 leading-relaxed">
+                  <p className="text-sandstone/80 text-justify">
                     {servicesData[selectedService].description}
                   </p>
 
                   <div className="space-y-4">
-                    <h3 className="font-primary text-sandstone text-xl">
+                    <h3 className="text-xl font-primary text-sandstone">
                       Key Benefits:
                     </h3>
-                    <ul className="space-y-2">
+                    <ul className="grid md:grid-cols-2 space-y-1.5">
                       {servicesData[selectedService].benefits.map(
                         (benefit, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <Star className="w-5 h-5 text-vanilla mt-0.5 flex-shrink-0" />
-                            <span className="text-sandstone/80">{benefit}</span>
+                          <li
+                            key={idx}
+                            className="flex items-start text-sandstone/80 gap-3"
+                          >
+                            <Star strokeWidth={2.5} className="w-4 h-4" />
+                            <span>{benefit}</span>
                           </li>
                         )
                       )}
                     </ul>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-6 py-4">
-                    <div className="flex items-center gap-3">
-                      <Clock className="w-6 h-6 text-vanilla" />
-                      <div>
-                        <p className="text-sandstone font-semibold">Duration</p>
-                        <p className="text-sandstone/80 text-sm">
-                          {servicesData[selectedService].duration}
-                        </p>
-                      </div>
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-vanilla" />
+                      <span className="text-sm text-sandstone/80">
+                        {servicesData[selectedService].duration}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Users className="w-6 h-6 text-vanilla" />
-                      <div>
-                        <p className="text-sandstone font-semibold">
-                          Price Range
-                        </p>
-                        <p className="text-sandstone/80 text-sm">
-                          {servicesData[selectedService].price}
-                        </p>
-                      </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-vanilla" />
+                      <span className="text-sm text-sandstone/80">
+                        {servicesData[selectedService].price}
+                      </span>
                     </div>
                   </div>
 
@@ -557,13 +552,12 @@ export default function ServicePage({ openBookingModal }) {
       </section>
 
       {/* overview section */}
-      <section className="bg-vanilla/20 py-20">
+      <section className="bg-vanilla/20 py-10 lg:py-20">
         <div className="max-w-7xl mx-auto px-6 font-secondary">
           {/* benefits grid */}
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* image - shown first on mobile, second on desktop */}
-            <div className="relative block order-first lg:order-last">
-              <div className="relative mx-auto w-full h-[25vh] lg:h-[50vh] rounded-tl-[20vw] overflow-hidden">
+            <div className="relative block">
+              <div className="w-full h-[30vh] lg:h-[45vh] rounded-tl-[20vw] overflow-hidden">
                 <img
                   src={
                     "https://images.pexels.com/photos/5793899/pexels-photo-5793899.jpeg?_gl=1*1lwaveg*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgzMjExNzYkbzEzJGcxJHQxNzU4MzIxMjM4JGo1OSRsMCRoMA.."
@@ -574,30 +568,31 @@ export default function ServicePage({ openBookingModal }) {
               </div>
             </div>
 
-            {/* content - shown second on mobile, first on desktop */}
-            <div className="space-y-8 text-center lg:text-left order-last lg:order-first">
-              <h1 className="font-primary text-sandstone text-4xl lg:text-5xl">
-                Why Choose <br className="hidden lg:block" />
+            {/* content */}
+            <div className="space-y-6 text-center lg:text-left order-last lg:order-first">
+              <h1 className="text-center lg:text-start font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl">
+                Why Choose
+                <br className="hidden lg:block" />
                 Our Services?
               </h1>
-              <p className="text-sandstone/80">
+              <h2 className="text-center lg:text-left text-sandstone/80 md:text-lg lg:text-xl">
                 We provide comprehensive care with a focus on your individual
                 needs and long-term wellness.
-              </p>
+              </h2>
 
               {/* services list */}
-              <ul className="space-y-1">
+              <ul className="grid md:grid-cols-2 lg:grid-cols-1 space-y-1.5">
                 {generalServices.map((service, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="w-6 h-6 text-sandstone" />
-                    <span className="text-sandstone/80">{service}</span>
+                  <li key={index} className="flex items-center text-sandstone/80 gap-4">
+                    <Check strokeWidth={2.5} className="w-4 h-4" />
+                    <span>{service}</span>
                   </li>
                 ))}
               </ul>
 
               <button
                 onClick={openBookingModal}
-                className="uppercase tracking-widest text-xs border border-transparent bg-vanilla/50 text-white hover:bg-porcelain hover:text-sandstone hover:border-sandstone/50 px-8 py-3 rounded-full duration-200 inline-flex items-center justify-center gap-2"
+                className="hidden lg:flex items-center justify-center uppercase tracking-widest px-8 py-3 rounded-full text-xs gap-2 border border-transparent bg-sandstone text-white hover:bg-transparent hover:text-sandstone hover:border-sandstone/50 duration-200"
               >
                 <span>Schedule Appointment</span>
                 <MoveRight className="w-4 h-4" />

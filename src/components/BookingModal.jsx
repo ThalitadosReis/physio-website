@@ -174,7 +174,7 @@ export default function BookingModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed backdrop-blur-sm inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed flex items-center justify-center p-6 backdrop-blur-sm inset-0 z-50">
       <div
         ref={modalRef}
         className="relative bg-white rounded-3xl max-w-5xl w-full max-h-[90vh] overflow-hidden shadow-xl"
@@ -204,35 +204,29 @@ export default function BookingModal({
             <div className="p-8 lg:px-12 font-secondary">
               <div className="mb-8">
                 <div className="flex flex-col justify-center items-center text-center">
-                  <img
-                    src="https://res.cloudinary.com/douen1dwv/image/upload/v1758047929/default/lotus_2_zntprp.png"
-                    alt="Logo"
-                    className="h-12"
-                  />
-                  <h2 className="text-3xl lg:text-4xl font-primary text-sandstone mt-2">
+                  <img src="/logo.png" alt="Logo" className="h-12" />
+                  <h1 className="text-center font-primary text-sandstone text-2xl md:text-3xl lg:text-4xl mt-4">
                     Book an Appointment
-                  </h2>
-                  <p className="text-sandstone/80 mt-4">
+                  </h1>
+                  <h2 className="max-w-4xl text-sandstone/80 text-center md:text-lg lg:text-xl mt-2">
                     Please fill out the form below to request an appointment.
-                  </p>
+                  </h2>
                 </div>
               </div>
 
               {isSubmitted ? (
-                <div className="bg-vanilla/20 border border-vanilla/30 p-8 rounded-2xl text-center">
-                  <div className="w-16 h-16 bg-sandstone rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <Check className="w-8 h-8 text-white" />
+                <div className="space-y-2 text-center bg-vanilla/20 border border-vanilla/30 p-8 rounded-2xl">
+                  <div className="flex items-center justify-center w-12 h-12 bg-sandstone/80 rounded-full mx-auto">
+                    <Check strokeWidth={2.5} className="text-white" />
                   </div>
-                  <h3 className="text-2xl font-primary text-sandstone mb-4">
-                    Appointment Booked Successfully!
-                  </h3>
+                  <h3 className="text-2xl text-sandstone">Message Sent!</h3>
                   <p className="text-sandstone/80">
-                    Thank you for booking with us. We'll contact you within 24
-                    hours to confirm your appointment details.
+                    Thank you for contacting us. We'll get back to you within 24
+                    hours.
                   </p>
                 </div>
               ) : (
-                <form className="space-y-4" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="space-y-4">
                   {/* name */}
                   <div>
                     <input

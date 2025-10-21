@@ -4,7 +4,7 @@ A modern, responsive physiotherapy clinic website built with React, featuring on
 
 ## 🌟 Live Demo
 
-**[View Live Demo](https://your-demo-link.vercel.app](https://physioplus-website.vercel.app/)](https://physioplus-website.vercel.app/))**
+**[View Live Demo](https://physioplus-website.vercel.app/)**
 
 > 📱 Try the responsive design on mobile, tablet, and desktop!
 
@@ -29,13 +29,10 @@ A modern, responsive physiotherapy clinic website built with React, featuring on
 - **Tailwind CSS 4** 
 - **Lucide React** 
 - **React Day Picker**
-- **Vite**
 
 ### Backend
 - **Express.js**
 - **Nodemailer**
-- **CORS**
-- **dotenv**
 
 ## 📦 Installation
 

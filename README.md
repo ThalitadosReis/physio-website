@@ -2,13 +2,7 @@
 
 A modern, responsive physiotherapy clinic website built with React, featuring online booking, service information, and contact management.
 
-## 🌟 Live Demo
-
-**[View Live Demo](https://physioplus-website.vercel.app/)**
-
-> 📱 Try the responsive design on mobile, tablet, and desktop!
-
-## 📸 Screenshots
+## 🌐 [Live Preview ](https://physioplus-website.vercel.app/)
 
 ![Desktop Screenshot](https://res.cloudinary.com/douen1dwv/image/upload/v1762962848/default/Physio__4.52pm_11-12_1_e324n0.jpg)
 

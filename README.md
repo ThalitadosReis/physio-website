@@ -10,7 +10,7 @@ A modern, responsive physiotherapy clinic website built with React, featuring on
 
 ## 📸 Screenshots
 
-![Desktop Screenshot](https://res.cloudinary.com/douen1dwv/image/upload/v1758460591/default/179shots_so_vso3zu.png)
+![Desktop Screenshot](https://res.cloudinary.com/douen1dwv/image/upload/v1762962848/default/Physio__4.52pm_11-12_1_e324n0.jpg)
 
 ## 🚀 Features
 
@@ -20,7 +20,7 @@ A modern, responsive physiotherapy clinic website built with React, featuring on
 - **Contact Forms**: Contact form with email integration
 - **Email Integration**: Automated email notifications for bookings and inquiries
 - **Modern UI**: Clean design with custom Tailwind CSS styling
-- **Performance Optimized**: Fast loading with modern React patterns
+- **Performance Optimised**: Fast loading with modern React patterns
 
 ## 🛠️ Tech Stack
 

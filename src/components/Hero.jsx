@@ -1,4 +1,5 @@
 import { MoveRight } from "lucide-react";
+import { heroImage } from "../lib/images";
 
 export default function Hero({ openBookingModal }) {
   return (
@@ -12,7 +13,7 @@ export default function Hero({ openBookingModal }) {
             {/* header */}
             <div className="space-y-4 text-sandstone text-center lg:text-left mb-8">
               <h1 className="text-center lg:text-start font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl">
-                Helping you Achieve 
+                Helping you Achieve
                 <br className="block" />
                 Optimal Wellbeing
               </h1>
@@ -41,11 +42,14 @@ export default function Hero({ openBookingModal }) {
 
           {/* image */}
           <div className="relative block w-full">
-            <div className="w-full h-[30vh] lg:h-[45vh] rounded-t-full overflow-hidden -mb-10 z-10">
+            <div className="w-full h-[320px] sm:h-[380px] md:h-[460px] lg:h-[560px] rounded-t-full overflow-hidden -mb-10 z-10">
               <img
-                src="https://images.pexels.com/photos/5793681/pexels-photo-5793681.jpeg?_gl=1*cwxc9w*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwNTA5MTUkbzckZzEkdDE3NTgwNTA5MTYkajU5JGwwJGgw"
-                alt="Physiotherapist"
+                src={heroImage.src}
+                alt={heroImage.alt}
                 className="w-full h-full object-cover object-[25%_35%] rounded-2xl"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
               />
             </div>
           </div>

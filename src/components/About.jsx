@@ -1,5 +1,6 @@
 import { MoveRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { logoImage, practitionerPortraitImage } from "../lib/images";
 
 export default function About({ setNavbarPage }) {
   return (
@@ -8,7 +9,13 @@ export default function About({ setNavbarPage }) {
         {/* header */}
         <div className="mb-8">
           <div className="flex flex-col justify-center items-center">
-            <img src={"/logo.png"} alt="Logo" className="h-12" />
+            <img
+              src={logoImage.src}
+              alt={logoImage.alt}
+              className="h-12"
+              loading="lazy"
+              decoding="async"
+            />
             <h3 className="uppercase text-sandstone tracking-widest text-xs mt-2">
               Welcome to Physio+
             </h3>
@@ -25,11 +32,12 @@ export default function About({ setNavbarPage }) {
           <div className="relative block">
             <div className="w-full h-[30vh] lg:h-[45vh] rounded-tr-[20vw] overflow-hidden">
               <img
-                src={
-                  "https://images.pexels.com/photos/5793894/pexels-photo-5793894.jpeg?_gl=1*r16md7*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwMzc4NTckbzQkZzEkdDE3NTgwMzc4ODAkajM3JGwwJGgw"
-                }
-                alt="Physiotherapist"
+                src={practitionerPortraitImage.src}
+                alt={practitionerPortraitImage.alt}
                 className="w-full h-full object-cover object-[25%_20%] lg:object-[25%_35%] rounded-2xl"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
           </div>

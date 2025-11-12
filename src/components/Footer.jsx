@@ -1,4 +1,4 @@
-import { Instagram, Linkedin } from "lucide-react";
+import { logoImage } from "../lib/images";
 
 export default function Footer() {
   return (
@@ -7,7 +7,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <div className="flex items-center space-x-2 mb-3">
-              <img src="/logo.png" alt="Logo" className="h-10" />
+              <img
+                src={logoImage.src}
+                alt={logoImage.alt}
+                className="h-10"
+                loading="lazy"
+                decoding="async"
+              />
               <span className="text-xl font-primary text-sandstone">
                 Physio+
               </span>
@@ -50,7 +56,7 @@ export default function Footer() {
         <div className="border-t border-sandstone/50 mt-6 pt-6">
           <div className="text-sm flex flex-col md:flex-row justify-between items-center text-sandstone/80">
             <p>© 2025 Physio+. All rights reserved.</p>
-            <span>Made with ❤️ by Thalita dos Reis</span>
+            <span>Made by Thalita dos Reis</span>
           </div>
         </div>
       </div>

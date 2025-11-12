@@ -1,5 +1,6 @@
 import { Check, Cross, HandHeart, HeartHandshake } from "lucide-react";
 import { generalServices } from "../data/servicelist";
+import { servicesFeatureImage } from "../lib/images";
 
 export default function Services() {
   return (
@@ -58,7 +59,10 @@ export default function Services() {
             {/* services list */}
             <ul className="space-y-2 grid md:grid-cols-2 lg:grid-cols-1">
               {generalServices.map((service, index) => (
-                <li key={index} className="flex items-center gap-4 text-sandstone/80">
+                <li
+                  key={index}
+                  className="flex items-center gap-4 text-sandstone/80"
+                >
                   <Check strokeWidth={2.5} className="w-4 h-4" />
                   <span>{service}</span>
                 </li>
@@ -70,11 +74,12 @@ export default function Services() {
           <div className="relative block w-full">
             <div className="w-full h-[30vh] lg:h-[45vh] rounded-bl-[20vw] overflow-hidden">
               <img
-                src={
-                  "https://images.pexels.com/photos/5793901/pexels-photo-5793901.jpeg?_gl=1*wv0l01*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgyMTc4MDckbzEwJGcxJHQxNzU4MjE3OTU0JGo2MCRsMCRoMA.."
-                }
-                alt="Physiotherapist"
+                src={servicesFeatureImage.src}
+                alt={servicesFeatureImage.alt}
                 className="w-full h-full object-cover object-[45%_5%] rounded-2xl"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
           </div>

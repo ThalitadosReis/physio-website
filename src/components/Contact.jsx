@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { sendContactEmail } from "../utils/emailService";
 import { Check, Loader2, X } from "lucide-react";
+import { contactHeroImage } from "../lib/images";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -59,11 +60,12 @@ export default function Contact() {
           <div className="relative block">
             <div className="w-full h-[30vh] lg:h-[45vh] rounded-b-full overflow-hidden">
               <img
-                src={
-                  "https://images.pexels.com/photos/5793787/pexels-photo-5793787.jpeg?_gl=1*qbt5vc*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwNDYxNDgkbzYkZzEkdDE3NTgwNDYxNDkkajU5JGwwJGgw"
-                }
-                alt="Physiotherapist"
+                src={contactHeroImage.src}
+                alt={contactHeroImage.alt}
                 className="w-full h-full object-cover object-[25%_35%] rounded-2xl"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
           </div>

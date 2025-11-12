@@ -4,22 +4,24 @@ import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { sendBookingEmail } from "../utils/emailService";
 import { servicesList } from "../data/servicelist";
+import { bookingModalImage, logoImage } from "../lib/images";
+
+const initialFormState = {
+  name: "",
+  email: "",
+  phone: "",
+  service: "",
+  date: "",
+  time: "",
+  message: "",
+};
 
 export default function BookingModal({
   isOpen,
   onClose,
   prefilledService = "",
 }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    date: "",
-    time: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -67,10 +69,17 @@ export default function BookingModal({
     });
   };
 
-  // handle prefilled service
+  // reset form when modal opens and apply any prefilled service
   useEffect(() => {
-    if (isOpen && prefilledService) {
-      setFormData((prev) => ({ ...prev, service: prefilledService }));
+    if (isOpen) {
+      setFormData({
+        ...initialFormState,
+        service: prefilledService || "",
+      });
+      setSelectedDate(null);
+      setTimeData({ hour: "", minute: "" });
+      setSubmitMessage("");
+      setIsSubmitted(false);
     }
   }, [isOpen, prefilledService]);
 
@@ -187,14 +196,17 @@ export default function BookingModal({
           <X className="w-6 h-6 text-sandstone" />
         </button>
 
-        <div className="grid lg:grid-cols-[45%_55%] max-h-[90vh] overflow-y-auto">
+        <div className="grid lg:grid-cols-2 max-h-[90vh] overflow-y-auto scrollbar-hidden">
           {/* left-side image */}
           <div className="lg:p-0 lg:m-0">
             <div className="rounded-t-2xl lg:rounded-r-none lg:rounded-l-3xl overflow-hidden h-64 lg:h-full">
               <img
-                src="https://images.pexels.com/photos/5793784/pexels-photo-5793784.jpeg?_gl=1*ipudto*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgyMTc4MDckbzEwJGcxJHQxNzU4MjE5Mzk5JGo0NiRsMCRoMA"
-                alt="Booking"
+                src={bookingModalImage.src}
+                alt={bookingModalImage.alt}
                 className="w-full h-full object-cover object-[35%_15%]"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
             </div>
           </div>
@@ -204,7 +216,13 @@ export default function BookingModal({
             <div className="p-8 lg:px-12 font-secondary">
               <div className="mb-8">
                 <div className="flex flex-col justify-center items-center text-center">
-                  <img src="/logo.png" alt="Logo" className="h-12" />
+                  <img
+                    src={logoImage.src}
+                    alt={logoImage.alt}
+                    className="h-12"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <h1 className="text-center font-primary text-sandstone text-2xl md:text-3xl lg:text-4xl mt-4">
                     Book an Appointment
                   </h1>
@@ -266,10 +284,10 @@ export default function BookingModal({
                   <div className="relative">
                     <select
                       id="service"
-                      className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone   appearance-none text-sandstone/50 ${
-                        formData.service === ""
-                          ? "text-sandstone/50"
-                          : "!text-black"
+                      className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none ${
+                        formData.service
+                          ? "text-sandstone"
+                          : "text-sandstone/50"
                       }`}
                       value={formData.service}
                       onChange={handleInputChange}

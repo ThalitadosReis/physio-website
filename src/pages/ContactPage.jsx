@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { MoveRight, Check, Loader2, ChevronDown, X } from "lucide-react";
 import { sendContactEmail } from "../utils/emailService";
+import {
+  contactHeroImage,
+  logoImage,
+  practitionerPortraitImage,
+} from "../lib/images";
 
 export default function ContactPage({ openBookingModal }) {
   const [formData, setFormData] = useState({
@@ -79,31 +84,40 @@ export default function ContactPage({ openBookingModal }) {
     <div className="pt-16">
       {/* hero */}
       <section className="relative bg-white lg:rounded-3xl py-6 lg:py-0 lg:mx-6">
-        <div className="max-w-7xl px-6 lg:px-0 font-secondary">
-          <div className="grid lg:grid-cols-2 lg:gap-8 items-center justify-between">
+        <div className="mx-auto px-6 lg:px-0 font-secondary">
+          <div className="grid lg:grid-cols-2">
             {/* image */}
-            <div className="w-full h-[30vh] lg:h-[75vh] lg:p-0 lg:m-0">
+            <div className=" h-[320px] sm:h-[380px] md:h-[460px] lg:h-[680px] lg:rounded-l-3xl overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/5793787/pexels-photo-5793787.jpeg?_gl=1*qbt5vc*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwNDYxNDgkbzYkZzEkdDE3NTgwNDYxNDkkajU5JGwwJGgw"
-                alt="Contact Physio+"
-                className="w-full h-full object-cover object-[15%_45%] rounded-2xl lg:rounded-r-none"
+                src={contactHeroImage.src}
+                alt={contactHeroImage.alt}
+                className="w-full h-full object-cover object-[15%_45%] rounded-2xl"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
               />
             </div>
             {/* content */}
-            <div className="py-6 lg:p-6 flex flex-col items-center">
+            <div className="px-6 py-6 lg:px-12 lg:py-12 bg-white lg:rounded-r-3xl flex flex-col justify-center">
               {/* header */}
-              <div className="flex flex-col items-center text-center mb-8 w-full">
-                <img src="/logo.png" alt="Logo" className="h-12" />
-                <h1 className="text-center font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl mt-4">
+              <div className="w-full flex flex-col items-center text-center mb-8 space-y-2">
+                <img
+                  src={logoImage.src}
+                  alt={logoImage.alt}
+                  className="h-12"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <h1 className="text-center font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl">
                   Send Us a Message
                 </h1>
-                <h2 className="max-w-4xl text-sandstone/80 text-center md:text-lg mt-2">
+                <p className="max-w-4xl text-sandstone/80 text-center md:text-lg">
                   Have a specific question or want to learn more about our
-                  services? Fill out the form below and we'll get back to you
-                  promptly.
-                </h2>
+                  services? <br />
+                  Fill out the form below and we'll get back to you promptly.
+                </p>
               </div>
-              <div className="w-full max-w-xl">
+              <div className="w-full max-w-xl mx-auto">
                 {isSubmitted ? (
                   <div className="space-y-2 text-center bg-vanilla/20 border border-vanilla/30 p-8 rounded-2xl">
                     <div className="flex items-center justify-center w-12 h-12 bg-sandstone/80 rounded-full mx-auto">
@@ -138,9 +152,15 @@ export default function ContactPage({ openBookingModal }) {
                             value={formData.subject}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone placeholder:text-sandstone/50 appearance-none"
+                            className={`w-full px-4 py-3 border border-sandstone/20 rounded-full bg-transparent focus:outline-none focus:ring-2 focus:ring-sandstone/30 focus:border-sandstone appearance-none ${
+                              formData.subject
+                                ? "text-sandstone"
+                                : "text-sandstone/50"
+                            }`}
                           >
-                            <option value="">Select a topic</option>
+                            <option value="" disabled>
+                              Select a topic
+                            </option>
                             <option value="Appointment">
                               Book Appointment
                             </option>
@@ -305,11 +325,12 @@ export default function ContactPage({ openBookingModal }) {
             <div className="relative block">
               <div className="w-full h-[30vh] lg:h-[45vh] rounded-tr-[20vw] overflow-hidden">
                 <img
-                  src={
-                    "https://images.pexels.com/photos/5793894/pexels-photo-5793894.jpeg?_gl=1*r16md7*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwMzc4NTckbzQkZzEkdDE3NTgwMzc4ODAkajM3JGwwJGgw"
-                  }
-                  alt="Physiotherapist"
+                  src={practitionerPortraitImage.src}
+                  alt={practitionerPortraitImage.alt}
                   className="w-full h-full object-cover object-[25%_20%] lg:object-[25%_35%] rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="low"
                 />
               </div>
             </div>

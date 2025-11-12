@@ -19,6 +19,7 @@ import {
   generalServices,
 } from "../data/servicelist";
 import { sendBookingEmail } from "../utils/emailService";
+import { logoImage, servicesOverviewImage } from "../lib/images";
 
 export default function ServicePage({ openBookingModal }) {
   const [selectedService, setSelectedService] = useState("Chiropractic");
@@ -151,7 +152,13 @@ export default function ServicePage({ openBookingModal }) {
           {/* header */}
           <div className="mb-8">
             <div className="flex flex-col justify-center items-center">
-              <img src="/logo.png" alt="Logo" className="h-12" />
+              <img
+                src={logoImage.src}
+                alt={logoImage.alt}
+                className="h-12"
+                loading="lazy"
+                decoding="async"
+              />
               <h1 className="text-center font-primary text-sandstone text-3xl md:text-4xl lg:text-5xl mt-4">
                 Treatment Options
               </h1>
@@ -426,8 +433,14 @@ export default function ServicePage({ openBookingModal }) {
                       <div className="w-full h-[30vh] lg:h-[45vh] overflow-hidden">
                         <img
                           src={servicesData[serviceName].image}
-                          alt={serviceName}
+                          alt={
+                            servicesData[serviceName].imageAlt ||
+                            `${serviceName} treatment`
+                          }
                           className="w-full h-full object-cover object-[25%_45%] rounded-2xl"
+                          loading="lazy"
+                          decoding="async"
+                          fetchpriority="low"
                         />
                       </div>
                       <div className="space-y-4">
@@ -489,8 +502,14 @@ export default function ServicePage({ openBookingModal }) {
                 <div className="mb-6 overflow-hidden">
                   <img
                     src={servicesData[selectedService].image}
-                    alt={selectedService}
+                    alt={
+                      servicesData[selectedService].imageAlt ||
+                      `${selectedService} treatment`
+                    }
                     className="w-full h-[30vh] object-cover rounded-2xl shadow-lg"
+                    loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
                   />
                 </div>
 
@@ -559,11 +578,12 @@ export default function ServicePage({ openBookingModal }) {
             <div className="relative block">
               <div className="w-full h-[30vh] lg:h-[45vh] rounded-tl-[20vw] overflow-hidden">
                 <img
-                  src={
-                    "https://images.pexels.com/photos/5793899/pexels-photo-5793899.jpeg?_gl=1*1lwaveg*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgzMjExNzYkbzEzJGcxJHQxNzU4MzIxMjM4JGo1OSRsMCRoMA.."
-                  }
-                  alt="Physiotherapist"
+                  src={servicesOverviewImage.src}
+                  alt={servicesOverviewImage.alt}
                   className="w-full h-full object-cover object-[55%_35%] rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="low"
                 />
               </div>
             </div>
@@ -583,7 +603,10 @@ export default function ServicePage({ openBookingModal }) {
               {/* services list */}
               <ul className="grid md:grid-cols-2 lg:grid-cols-1 space-y-1.5">
                 {generalServices.map((service, index) => (
-                  <li key={index} className="flex items-center text-sandstone/80 gap-4">
+                  <li
+                    key={index}
+                    className="flex items-center text-sandstone/80 gap-4"
+                  >
                     <Check strokeWidth={2.5} className="w-4 h-4" />
                     <span>{service}</span>
                   </li>

@@ -1,4 +1,5 @@
 import { MoveRight } from "lucide-react";
+import { logoImage, practitionerPortraitImage } from "../lib/images";
 
 export default function AboutPage({ openBookingModal }) {
   return (
@@ -9,7 +10,13 @@ export default function AboutPage({ openBookingModal }) {
           {/* header */}
           <div className="mb-8 lg:mb-0">
             <div className="flex flex-col justify-center items-center">
-              <img src="/logo.png" alt="Logo" className="h-12" />
+              <img
+                src={logoImage.src}
+                alt={logoImage.alt}
+                className="h-12"
+                loading="lazy"
+                decoding="async"
+              />
               <h3 className="uppercase text-sandstone tracking-widest text-xs mt-2">
                 Meet Your Practitioner
               </h3>
@@ -30,9 +37,12 @@ export default function AboutPage({ openBookingModal }) {
             <div className="relative block">
               <div className="w-full h-[30vh] lg:h-[45vh] rounded-tr-[20vw] overflow-hidden lg:transform lg:translate-y-10 lg:z-10">
                 <img
-                  src="https://images.pexels.com/photos/5793894/pexels-photo-5793894.jpeg?_gl=1*r16md7*_ga*MTE1NTcwMTQwLjE3NTU4ODU3NjQ.*_ga_8JE65Q40S6*czE3NTgwMzc4NTckbzQkZzEkdDE3NTgwMzc4ODAkajM3JGwwJGgw"
-                  alt="Physiotherapist"
+                  src={practitionerPortraitImage.src}
+                  alt={practitionerPortraitImage.alt}
                   className="w-full h-full object-cover object-[25%_20%] lg:object-[25%_35%] rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="low"
                 />
               </div>
             </div>
@@ -141,7 +151,9 @@ export default function AboutPage({ openBookingModal }) {
               Our Mission
             </h1>
             <h2 className="max-w-4xl text-sandstone/80 text-center text-lg lg:text-xl mt-2">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco.
             </h2>
             <button
               onClick={openBookingModal}

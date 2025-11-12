@@ -17,7 +17,6 @@ export default function Expertise({ setNavbarPage }) {
     );
   };
 
-
   return (
     <div className="bg-vanilla/20 py-20">
       <div className="max-w-7xl mx-auto px-6 font-secondary">
@@ -28,7 +27,8 @@ export default function Expertise({ setNavbarPage }) {
               Areas of Expertise
             </h1>
             <h2 className="max-w-4xl text-sandstone/80 text-center md:text-lg lg:text-xl mt-2">
-              Treatment-based Chiropractic, Acupuncture, Massage Therapy, Physiotherapy & Osteopathy.
+              Treatment-based Chiropractic, Acupuncture, Massage Therapy,
+              Physiotherapy & Osteopathy.
             </h2>
           </div>
         </div>
@@ -63,7 +63,9 @@ export default function Expertise({ setNavbarPage }) {
                       : "bg-white hover:bg-sandstone/20 text-sandstone"
                   }`}
                 >
-                  <span className="text-xl md:text-2xl font-primary">{serviceName}</span>
+                  <span className="text-xl md:text-2xl font-primary">
+                    {serviceName}
+                  </span>
                   <div className="transition-transform duration-300">
                     {openAccordionService === serviceName ? (
                       <ChevronDown className="w-6 h-6" />
@@ -85,8 +87,14 @@ export default function Expertise({ setNavbarPage }) {
                     <div className="w-full h-[30vh] lg:h-[45vh] overflow-hidden">
                       <img
                         src={servicesData[serviceName].image}
-                        alt={serviceName}
-                        className="w-full h-full object-cover object-[25%_45%] rounded-2xl"
+                        alt={
+                          servicesData[serviceName].imageAlt ||
+                          `${serviceName} treatment`
+                        }
+                        className="w-full h-full object-cover object-[35%_25%] rounded-2xl"
+                        loading="lazy"
+                        decoding="async"
+                        fetchpriority="low"
                       />
                     </div>
                     <p className="text-sm text-sandstone/80 text-justify">
@@ -110,11 +118,17 @@ export default function Expertise({ setNavbarPage }) {
           <div className="relative hidden lg:block">
             <div className="space-y-6">
               {/* image */}
-              <div className="w-full h-[30vh] overflow-hidden">
+              <div className="w-full h-[380px] overflow-hidden">
                 <img
                   src={servicesData[selectedService].image}
-                  alt={selectedService}
+                  alt={
+                    servicesData[selectedService].imageAlt ||
+                    `${selectedService} treatment`
+                  }
                   className="w-full h-full object-cover object-[25%_45%] rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="low"
                 />
               </div>
 

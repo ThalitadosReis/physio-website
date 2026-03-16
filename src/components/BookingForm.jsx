@@ -112,10 +112,7 @@ function TimeSelectGroup({
   minuteId,
   timeData,
   onTimePartChange,
-  disabled,
 }) {
-  const disabledClass = disabled ? "cursor-not-allowed text-mauve-300" : "";
-
   return (
     <div className="grid grid-cols-2 gap-3">
       <div>
@@ -127,10 +124,9 @@ function TimeSelectGroup({
             id={hourId}
             value={timeData.hour}
             onChange={(e) => onTimePartChange("hour", e.target.value)}
-            disabled={disabled}
-            className={`${selectClass} ${disabledClass}`.trim()}
+            className={selectClass}
           >
-            <option value="">{disabled ? "Select date" : "Hour"}</option>
+            <option value="">Hour</option>
             {hourOptions.map((hour) => (
               <option key={hour} value={hour}>
                 {hour}
@@ -153,10 +149,9 @@ function TimeSelectGroup({
             id={minuteId}
             value={timeData.minute}
             onChange={(e) => onTimePartChange("minute", e.target.value)}
-            disabled={disabled}
-            className={`${selectClass} ${disabledClass}`.trim()}
+            className={selectClass}
           >
-            <option value="">{disabled ? "Select date" : "Min"}</option>
+            <option value="">Min</option>
             {minuteOptions.map((minute) => (
               <option key={minute} value={minute}>
                 {minute}
@@ -250,11 +245,9 @@ export default function BookingForm({
   const handleDateSelect = (date) => {
     setSelectedDate(date);
     setMobileDate("");
-    setTimeData({ hour: "", minute: "" });
     setFormData((current) => ({
       ...current,
       date: date ? toIsoDate(calYear, calMonth, date) : "",
-      time: "",
     }));
   };
 
@@ -435,7 +428,6 @@ export default function BookingForm({
                     onChange={(e) => {
                       setMobileDate(e.target.value);
                       setSelectedDate(null);
-                      setTimeData({ hour: "", minute: "" });
                     }}
                     className={`${inputBaseClass} input-date-clean min-w-0 max-w-full pr-12 text-[16px] sm:text-sm`}
                   />
@@ -451,7 +443,6 @@ export default function BookingForm({
                 minuteId="mobile-minute"
                 timeData={timeData}
                 onTimePartChange={handleTimePartChange}
-                disabled={!mobileDate}
               />
             </div>
 
@@ -606,7 +597,6 @@ export default function BookingForm({
               minuteId="desktop-minute"
               timeData={timeData}
               onTimePartChange={handleTimePartChange}
-              disabled={!selectedDate}
             />
           </div>
         </div>

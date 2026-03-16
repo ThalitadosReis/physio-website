@@ -1,6 +1,6 @@
 const API_BASE_URL = import.meta.env.PROD
-  ? '/api'
-  : import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api';
+  ? "/api"
+  : import.meta.env.VITE_API_BASE_URL || "http://localhost:3001/api";
 
 // sending contact form email
 export const sendContactEmail = async (formData) => {
@@ -15,7 +15,7 @@ export const sendContactEmail = async (formData) => {
       body: JSON.stringify(formData),
     });
 
-    const result = await response.json();
+    const result = await response.json().catch(() => ({}));
 
     if (response.ok) {
       console.log("Contact email sent successfully!");
@@ -62,7 +62,7 @@ export const sendBookingEmail = async (formData) => {
       body: JSON.stringify(formData),
     });
 
-    const result = await response.json();
+    const result = await response.json().catch(() => ({}));
 
     if (response.ok) {
       console.log("Booking email sent successfully!");

@@ -7,6 +7,9 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const GMAIL_USER = process.env.GMAIL_USER;
+const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD?.replace(/\s+/g, "");
+const EMAIL_TO = process.env.EMAIL_TO || GMAIL_USER;
 
 // Middleware
 app.use(cors());
@@ -17,10 +20,32 @@ const createTransporter = () => {
   return nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
+      user: GMAIL_USER,
+      pass: GMAIL_APP_PASSWORD,
     },
   });
+};
+
+const hasEmailConfig = () => Boolean(GMAIL_USER && GMAIL_APP_PASSWORD);
+
+const isValidEmail = (value = "") =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
+const validateBookingPayload = ({
+  name,
+  email,
+  phone,
+  service,
+  date,
+  time,
+}) => {
+  if (!name?.trim()) return "Name is required.";
+  if (!isValidEmail(email)) return "A valid email is required.";
+  if (!phone?.trim()) return "Phone is required.";
+  if (!service?.trim()) return "Please select a service.";
+  if (!date?.trim()) return "Please select a date.";
+  if (!time?.trim()) return "Please select a time.";
+  return null;
 };
 
 // Contact form endpoint
@@ -33,11 +58,11 @@ app.post("/api/contact", async (req, res) => {
       email,
       phone,
       subject,
-      message: message ? 'has message' : 'no message',
-      fullBody: req.body
+      message: message ? "has message" : "no message",
+      fullBody: req.body,
     });
 
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    if (!hasEmailConfig()) {
       console.log("Email service not configured - logging form data:");
       console.log({ name, email, phone, subject, message });
       return res.json({
@@ -50,18 +75,18 @@ app.post("/api/contact", async (req, res) => {
     const transporter = createTransporter();
 
     const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.EMAIL_TO || "dosreistha@gmail.com",
+      from: GMAIL_USER,
+      to: EMAIL_TO,
       replyTo: email,
-      subject: `New Contact Form: ${subject || 'No Subject'} - From ${name}`,
+      subject: `New Contact Form: ${subject || "No Subject"} - From ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>From:</strong> ${name} &lt;${email}&gt;</p>
-        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : '<p><strong>Phone:</strong> Not provided</p>'}
-        <p><strong>Subject:</strong> ${subject || 'No subject selected'}</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : "<p><strong>Phone:</strong> Not provided</p>"}
+        <p><strong>Subject:</strong> ${subject || "No subject selected"}</p>
         <p><strong>Message:</strong></p>
         <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
-          ${message ? message.replace(/\n/g, "<br>") : 'No message provided'}
+          ${message ? message.replace(/\n/g, "<br>") : "No message provided"}
         </div>
         <hr>
         <p><small>Submitted: ${new Date().toLocaleString()}</small></p>
@@ -72,7 +97,7 @@ app.post("/api/contact", async (req, res) => {
       subject: mailOptions.subject,
       hasPhone: !!phone,
       hasSubject: !!subject,
-      hasMessage: !!message
+      hasMessage: !!message,
     });
 
     console.log("Sending contact email...");
@@ -93,32 +118,49 @@ app.post("/api/contact", async (req, res) => {
 });
 
 // Booking form endpoint
-app.post('/api/booking', async (req, res) => {
+app.post("/api/booking", async (req, res) => {
   try {
-    const { name, email, phone, service, date, time, message } = req.body
+    const { name, email, phone, service, date, time, message } = req.body;
 
-    console.log('🧪 Received booking form submission:', {
+    console.log("🧪 Received booking form submission:", {
       name,
       email,
       service,
       date,
-      time
-    })
+      time,
+    });
 
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-      console.log('Email service not configured - logging booking data:')
-      console.log({ name, email, phone, service, date, time, message })
-      return res.json({
-        success: true,
-        message: 'Booking submitted successfully (demo mode - check server console)'
-      })
+    const validationError = validateBookingPayload({
+      name,
+      email,
+      phone,
+      service,
+      date,
+      time,
+    });
+
+    if (validationError) {
+      return res.status(400).json({
+        success: false,
+        message: validationError,
+      });
     }
 
-    const transporter = createTransporter()
+    if (!hasEmailConfig()) {
+      console.log("Email service not configured - logging booking data:");
+      console.log({ name, email, phone, service, date, time, message });
+      return res.json({
+        success: true,
+        message:
+          "Booking submitted successfully (demo mode - check server console)",
+      });
+    }
+
+    const transporter = createTransporter();
 
     const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.EMAIL_TO || 'dosreistha@gmail.com',
+      from: GMAIL_USER,
+      to: EMAIL_TO,
       replyTo: email,
       subject: `Booking Request: ${service}`,
       html: `
@@ -130,36 +172,52 @@ app.post('/api/booking', async (req, res) => {
         <p><strong>Preferred Date:</strong> ${date}</p>
         <p><strong>Preferred Time:</strong> ${time}</p>
 
-        ${message ? `
+        ${
+          message
+            ? `
         <p><strong>Additional Information:</strong></p>
         <div style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
-          ${message.replace(/\n/g, '<br>')}
+          ${message.replace(/\n/g, "<br>")}
         </div>
-        ` : ''}
+        `
+            : ""
+        }
 
         <hr>
         <p><small>Booking submitted: ${new Date().toLocaleString()}</small></p>
-      `
-    }
+      `,
+    };
 
-    console.log('Sending booking email...')
-    const info = await transporter.sendMail(mailOptions)
-    console.log('Booking email sent:', info.messageId)
+    console.log("Sending booking email...");
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Booking email sent:", info.messageId);
 
     res.json({
       success: true,
-      message: 'Booking request sent successfully!'
-    })
+      message: "Booking request sent successfully!",
+    });
   } catch (error) {
-    console.error('Error sending booking email:', error)
+    console.error("Error sending booking email:", error);
     res.status(500).json({
       success: false,
-      message: 'Failed to send booking request'
-    })
+      message: "Failed to send booking request",
+    });
   }
-})
+});
 
 // Start server
 app.listen(PORT, async () => {
-  console.log(`🚀 Server running on port ${PORT}`)
-})
+  console.log(`🚀 Server running on port ${PORT}`);
+
+  if (!hasEmailConfig()) {
+    console.log("Email transport is running in demo mode.");
+    return;
+  }
+
+  try {
+    await createTransporter().verify();
+    console.log("Email transport verified successfully.");
+  } catch (error) {
+    console.error("Email transport verification failed:", error.message);
+  }
+});

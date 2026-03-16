@@ -73,31 +73,21 @@ export default function Navbar() {
                 className={`text-[11px] tracking-[0.2em] uppercase font-ui transition-colors duration-300 ${
                   isActive(link.to)
                     ? "text-mauve-800"
-                    : "text-mauve-600 hover:text-mauve-400"
+                    : "text-mauve-500 hover:text-mauve-400"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
 
-            <Button
-              as={Link}
-              to="/contact"
-              variant="secondary"
-              size="md"
-              className={
-                isActive("/contact")
-                  ? "bg-mauve-300 text-mauve-800 hover:bg-mauve-400"
-                  : "text-mauve-700 hover:bg-mauve-200 hover:text-mauve-800"
-              }
-            >
+            <Button as={Link} to="/contact" variant="secondary">
               Contact
             </Button>
           </div>
 
           <button
             type="button"
-            className="md:hidden text-mauve-600 hover:text-mauve-800 transition-colors duration-300"
+            className="md:hidden text-mauve-500 hover:text-mauve-800 transition-colors duration-300"
             onClick={() => setOpen((value) => !value)}
             aria-label={open ? "Close menu" : "Open menu"}
           >
@@ -140,7 +130,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="text-mauve-600 transition-colors duration-300 hover:text-mauve-800"
+                  className="text-mauve-500 transition-colors duration-300 hover:text-mauve-800"
                   aria-label="Close menu"
                 >
                   <XIcon size={22} />
@@ -165,7 +155,7 @@ export default function Navbar() {
                         className={`group flex items-center justify-between border-b border-mauve-200 py-5 ${
                           isActive(link.to)
                             ? "text-mauve-800"
-                            : "text-mauve-700 hover:text-mauve-400"
+                            : "text-mauve-600 hover:text-mauve-400"
                         }`}
                       >
                         <span className="font-display text-3xl font-light">
@@ -187,7 +177,7 @@ export default function Navbar() {
                 </p>
                 <a
                   href="mailto:physioplus@example.com"
-                  className="text-sm text-mauve-700 transition-colors duration-300 hover:text-mauve-800"
+                  className="text-sm text-mauve-800 transition-colors duration-300 hover:text-mauve-600"
                 >
                   physioplus@example.com
                 </a>

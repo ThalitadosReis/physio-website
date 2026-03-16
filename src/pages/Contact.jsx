@@ -36,6 +36,7 @@ export default function Contact() {
       <section className="bg-mauve-50 py-28 relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <PageHeader
+            eyebrow="get in touch"
             title="Book an Appointment"
             description="Select your treatment, preferred date, and time. We'll confirm your booking and next steps with you."
           />
@@ -63,7 +64,7 @@ export default function Contact() {
                 <img
                   src={practitionerPortraitImage.src}
                   alt={practitionerPortraitImage.alt}
-                  className="w-full h-full object-cover object-[25%_20%] lg:object-[25%_35%] rounded-lg"
+                  className="w-full h-full object-cover object-[25%_20%] md:object-[25%_35%] rounded-lg"
                   loading="lazy"
                   decoding="async"
                   fetchpriority="low"

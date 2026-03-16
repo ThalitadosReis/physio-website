@@ -1,5 +1,11 @@
-import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
+import {
+  ArrowUpIcon,
+  EnvelopeIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from "@phosphor-icons/react";
 import Logo from "./ui/Logo";
+import { ArrowUpRight } from "lucide-react";
 
 const openingHours = [
   { day: "Monday - Thursday", time: "08:00 - 18:00" },
@@ -10,7 +16,7 @@ const openingHours = [
 
 export default function Footer() {
   return (
-    <footer className="bg-mauve-50">
+    <footer className="bg-mauve-100">
       <div className="w-full h-64 grayscale opacity-80">
         <iframe
           title="Physio+ Location"
@@ -26,7 +32,7 @@ export default function Footer() {
           <div className="flex items-center gap-3 leading-none select-none">
             <Logo size="small" className="h-10 w-auto" />
             <span className="flex flex-col">
-              <span className="font-display text-2xl font-light tracking-[0.15em] text-mauve-800 uppercase">
+              <span className="font-display text-2xl font-light tracking-[0.15em] text-mauve-900 uppercase">
                 Physio+
               </span>
               <span className="font-ui text-[10px] font-light tracking-[0.35em] text-mauve-500 uppercase">
@@ -35,7 +41,7 @@ export default function Footer() {
             </span>
           </div>
 
-          <p className="text-sm font-ui font-light leading-relaxed text-mauve-700">
+          <p className="text-sm font-ui font-light leading-relaxed text-mauve-800">
             Expert physiotherapy care focused on recovery, mobility, and
             long-term wellbeing.
           </p>
@@ -51,8 +57,8 @@ export default function Footer() {
                 key={item.day}
                 className="flex justify-between gap-4 text-sm font-ui font-light"
               >
-                <span className="text-mauve-700">{item.day}</span>
-                <span className="text-mauve-500 text-right">
+                <span className="text-mauve-800">{item.day}</span>
+                <span className="text-right text-mauve-800/60">
                   {item.time}
                 </span>
               </li>
@@ -93,11 +99,22 @@ export default function Footer() {
 
       <div className="border-t border-mauve-200 px-6 py-6 lg:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 gap-2 items-center md:grid-cols-2">
-          <p className="text-xs font-ui text-mauve-500">
-            © {new Date().getFullYear()} Physio+.
+          <p className="text-[13px] font-ui text-mauve-500">
+            © {new Date().getFullYear()} Physio+. All rights reserved.
           </p>
-          <p className="text-xs font-ui text-mauve-500 md:text-right">
-            Made by Thalita dos Reis
+          <p className="text-[13px] font-ui text-mauve-500 md:text-right">
+            <a
+              href="https://thalitadosreis.ch/"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-mauve-700"
+            >
+              Made by Thalita dos Reis
+              <ArrowUpRight
+                size={14}
+                className="inline-block ml-1 text-mauve-500"
+              />
+            </a>
           </p>
         </div>
       </div>

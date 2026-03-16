@@ -28,7 +28,7 @@ export default function Services() {
           {featuredServices.map((service, index) => (
             <Reveal
               key={service.title}
-              className="overflow-hidden rounded-lg border border-neutral-200 bg-white"
+              className="overflow-hidden rounded-lg border border-mauve-200 bg-white"
               delay={index * 0.06}
             >
               <div className="h-64 overflow-hidden">

@@ -24,12 +24,12 @@ export default function SectionIntro({
           </span>
         ) : null}
         {title ? (
-          <h2 className="font-display text-neutral-800 text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="font-display text-mauve-900 text-3xl md:text-4xl lg:text-5xl">
             {title}
           </h2>
         ) : null}
         {description ? (
-          <p className="max-w-3xl text-neutral-600 md:text-lg">{description}</p>
+          <p className="max-w-3xl text-mauve-700 md:text-lg">{description}</p>
         ) : null}
       </div>
     </Reveal>

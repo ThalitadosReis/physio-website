@@ -1,11 +1,10 @@
 import {
-  ArrowUpIcon,
+  ArrowUpRightIcon,
   EnvelopeIcon,
   MapPinIcon,
   PhoneIcon,
 } from "@phosphor-icons/react";
 import Logo from "./ui/Logo";
-import { ArrowUpRight } from "lucide-react";
 
 const openingHours = [
   { day: "Monday - Thursday", time: "08:00 - 18:00" },
@@ -110,8 +109,8 @@ export default function Footer() {
               className="transition-colors hover:text-mauve-700"
             >
               Made by Thalita dos Reis
-              <ArrowUpRight
-                size={14}
+              <ArrowUpRightIcon
+                size={12}
                 className="inline-block ml-1 text-mauve-500"
               />
             </a>

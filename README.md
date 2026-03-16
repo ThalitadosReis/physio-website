@@ -1,91 +1,88 @@
 # Physio+ Website
 
-A modern, responsive physiotherapy clinic website built with React, featuring online booking, service information, and contact management.
+Responsive physiotherapy clinic website built with React and Tailwind CSS. The project includes a service showcase, booking flow, FAQ section, and an Express mail backend for appointment and contact requests.
 
-## 🌐 [Live Preview ](https://physioplus-website.vercel.app/)
+## Live Preview
 
-![Desktop Screenshot](https://res.cloudinary.com/douen1dwv/image/upload/v1762962848/default/Physio__4.52pm_11-12_1_e324n0.jpg)
+https://physioplus-website.vercel.app/
 
-## 🚀 Features
+## Features
 
-- **Responsive Design**: Mobile-first approach with desktop optimization
-- **Online Booking System**: Complete booking form with date/time selection
-- **Service Management**: Interactive service browser with detailed information
-- **Contact Forms**: Contact form with email integration
-- **Email Integration**: Automated email notifications for bookings and inquiries
-- **Modern UI**: Clean design with custom Tailwind CSS styling
-- **Performance Optimised**: Fast loading with modern React patterns
+- Responsive marketing site for a physiotherapy practice
+- Service overview page with interactive service selection
+- Booking form with date and time selection
+- FAQ accordion and contact flow
+- Email sending for booking and contact submissions
+- Shared UI components for headers, buttons, and section intros
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
-- **React 19**
-- **Tailwind CSS 4** 
-- **Lucide React** 
-- **React Day Picker**
+
+- React 19
+- React Router 7
+- Tailwind CSS 4
+- Motion
+- Phosphor Icons
 
 ### Backend
-- **Express.js**
-- **Nodemailer**
 
-## 📦 Installation
+- Express
+- Nodemailer
+- dotenv
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd physio-website
-   ```
+## Getting Started
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+1. Install dependencies
 
-3. **Environment Setup**
-   Create a `.env` file in the root directory:
-   ```env
-   GMAIL_USER=your-gmail-address@gmail.com
-   GMAIL_APP_PASSWORD=your-app-password
-   EMAIL_TO=recipient@example.com
-   PORT=3001
-   ```
+```bash
+npm install
+```
 
-4. **Gmail App Password Setup**
-   - Enable 2-Factor Authentication on your Gmail account
-   - Generate an App Password: Google Account → Security → App passwords
-   - Use the generated 16-character password as `GMAIL_APP_PASSWORD`
+2. Create a `.env` file in the project root
 
-### Development
+```env
+GMAIL_USER=your-gmail-address@gmail.com
+GMAIL_APP_PASSWORD=your-app-password
+EMAIL_TO=recipient@example.com
+PORT=3001
+```
 
-1. **Start the backend server**
-   ```bash
-   node server.js
-   ```
+3. Start the backend server
 
-2. **Start the frontend development server**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run start
+```
 
-## 📧 Email Configuration
+4. Start the frontend dev server
 
-The application supports two types of email notifications:
+```bash
+npm run dev
+```
 
-### Contact Form (`/api/contact`)
-- Processes general inquiries
-- Includes subject categorization
-- Supports phone number and custom messages
+The frontend expects the backend on `http://localhost:3001` in development unless `VITE_API_BASE_URL` is set.
 
-### Booking Form (`/api/booking`)
-- Handles appointment requests
-- Includes service selection and preferred date/time
-- Supports additional information field
+## Email Setup
 
+The backend uses Gmail SMTP through Nodemailer.
 
-## 🚦 API Endpoints
+- Enable 2-factor authentication on the Gmail account
+- Generate a Gmail app password
+- Use that value for `GMAIL_APP_PASSWORD`
 
-### POST `/api/contact`
-Submit contact form with subject categorization
+If email credentials are missing, the server falls back to demo mode and returns a success response without sending mail.
 
-### POST `/api/booking`
-Submit booking request with date/time preferences
+## Scripts
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run start
+```
+
+## API Endpoints
+
+- `POST /api/contact`
+- `POST /api/booking`

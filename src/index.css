@@ -13,10 +13,6 @@
   --color-mauve-800: #4f3d58;
   --color-mauve-900: #392b40;
 
-  --color-porcelain: var(--color-mauve-50);
-  --color-vanilla: var(--color-mauve-400);
-  --color-sandstone: var(--color-mauve-800);
-
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-ui: 'DM Sans', 'Segoe UI', sans-serif;
 }

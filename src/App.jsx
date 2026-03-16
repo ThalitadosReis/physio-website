@@ -25,7 +25,7 @@ function AppContent() {
   }, [location.pathname]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-mauve-100">
+    <div className="flex flex-col min-h-screen bg-mauve-50">
       <Navbar />
 
       <main className="flex-grow">

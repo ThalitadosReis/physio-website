@@ -1,4 +1,4 @@
-import { logoImage } from "../lib/images";
+import { logoImage } from "../../lib/images";
 
 export default function Logo({ size = "medium", className = "" }) {
   const sizeClasses = {

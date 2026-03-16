@@ -1,15 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-porcelain: #f2efeb;
-  --color-vanilla: #b09987;
-  --color-sandstone: #44312b;
+  --color-mauve-50: #faf7fb;
+  --color-mauve-100: #f3edf7;
+  --color-mauve-200: #e7dced;
+  --color-mauve-300: #d4bfdc;
+  --color-mauve-400: #b79bc3;
+  --color-mauve-500: #9b7faa;
+  --color-mauve-600: #80648f;
+  --color-mauve-700: #675072;
+  --color-mauve-800: #4f3d58;
+  --color-mauve-900: #392b40;
 
-  --font-primary: 'Tenor Sans', cursive;
-  --font-secondary: 'Public Sans', sans-serif;
+  --color-porcelain: var(--color-mauve-50);
+  --color-vanilla: var(--color-mauve-400);
+  --color-sandstone: var(--color-mauve-800);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'DM Sans', 'Segoe UI', sans-serif;
 }
 
 @layer utilities {

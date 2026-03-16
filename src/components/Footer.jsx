@@ -1,63 +1,104 @@
-import { logoImage } from "../lib/images";
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@phosphor-icons/react";
+import Logo from "./ui/Logo";
+
+const openingHours = [
+  { day: "Monday - Thursday", time: "08:00 - 18:00" },
+  { day: "Friday", time: "08:00 - 17:00" },
+  { day: "Saturday", time: "By appointment" },
+  { day: "Sunday", time: "Closed" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 font-secondary">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2 mb-3">
-              <img
-                src={logoImage.src}
-                alt={logoImage.alt}
-                className="h-10"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="text-xl font-primary text-sandstone">
+    <footer className="bg-mauve-50">
+      <div className="w-full h-64 grayscale opacity-80">
+        <iframe
+          title="Physio+ Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.7321621588594!2d8.537676776380067!3d47.3781457711698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a08cc0e6e41%3A0xf5c698b65f8c52a7!2sZurich%20HB!5e0!3m2!1sen!2sch!4v1758055156998!5m2!1sen!2sch"
+          className="h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-12 px-6 py-16 md:grid-cols-3 lg:px-12">
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 leading-none select-none">
+            <Logo size="small" className="h-10 w-auto" />
+            <span className="flex flex-col">
+              <span className="font-display text-2xl font-light tracking-[0.15em] text-mauve-800 uppercase">
                 Physio+
               </span>
-            </div>
-            <p className="max-w-md text-sm text-sandstone/80">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-
-            <div className="flex flex-col text-sm text-sandstone/80">
-              <span>+41 76 123 45 67</span>
-              <a href="mailto:">physioplus@example.com</a>
-            </div>
-            <span className="text-sm text-sandstone/80">
-              Bahnhofstrasse 1, 8001 Zürich, Switzerland
+              <span className="font-ui text-[10px] font-light tracking-[0.35em] text-mauve-500 uppercase">
+                Physiotherapy & Osteopathy
+              </span>
             </span>
           </div>
 
-          <div>
-            <div
-              className="w-full h-full rounded-2xl overflow-hidden"
-              style={{
-                filter:
-                  "sepia(0.6) saturate(0.2) brightness(0.85) contrast(1.3)",
-              }}
-            >
-              <iframe
-                title="Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.7321621588594!2d8.537676776380067!3d47.3781457711698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a08cc0e6e41%3A0xf5c698b65f8c52a7!2sZurich%20HB!5e0!3m2!1sen!2sch!4v1758055156998!5m2!1sen!2sch"
-                className="w-full h-full"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
+          <p className="text-sm font-ui font-light leading-relaxed text-mauve-700">
+            Expert physiotherapy care focused on recovery, mobility, and
+            long-term wellbeing.
+          </p>
         </div>
 
-        <div className="border-t border-sandstone/50 mt-6 pt-6">
-          <div className="text-sm flex flex-col md:flex-row justify-between items-center text-sandstone/80">
-            <p>© 2025 Physio+. All rights reserved.</p>
-            <span>Made by Thalita dos Reis</span>
-          </div>
+        <div>
+          <h4 className="mb-4 font-ui text-sm uppercase tracking-[0.2em] text-mauve-500">
+            Opening Hours
+          </h4>
+          <ul className="space-y-3">
+            {openingHours.map((item) => (
+              <li
+                key={item.day}
+                className="flex justify-between gap-4 text-sm font-ui font-light"
+              >
+                <span className="text-mauve-700">{item.day}</span>
+                <span className="text-mauve-500 text-right">
+                  {item.time}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="mb-4 font-ui text-sm uppercase tracking-[0.2em] text-mauve-500">
+            Contact
+          </h4>
+          <ul className="space-y-4">
+            <li className="flex items-center gap-3 text-sm font-ui font-light text-mauve-700">
+              <MapPinIcon size={16} className="shrink-0 text-mauve-500" />
+              <span>Bahnhofstrasse 1, 8001 Zurich, Switzerland</span>
+            </li>
+            <li className="flex items-center gap-3 text-sm font-ui font-light text-mauve-700">
+              <PhoneIcon size={16} className="shrink-0 text-mauve-500" />
+              <a
+                href="tel:+41761234567"
+                className="transition-colors hover:text-mauve-500"
+              >
+                +41 76 123 45 67
+              </a>
+            </li>
+            <li className="flex items-center gap-3 text-sm font-ui font-light text-mauve-700">
+              <EnvelopeIcon size={16} className="shrink-0 text-mauve-500" />
+              <a
+                href="mailto:physioplus@example.com"
+                className="transition-colors hover:text-mauve-500"
+              >
+                physioplus@example.com
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-mauve-200 px-6 py-6 lg:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 gap-2 items-center md:grid-cols-2">
+          <p className="text-xs font-ui text-mauve-500">
+            © {new Date().getFullYear()} Physio+.
+          </p>
+          <p className="text-xs font-ui text-mauve-500 md:text-right">
+            Made by Thalita dos Reis
+          </p>
         </div>
       </div>
     </footer>

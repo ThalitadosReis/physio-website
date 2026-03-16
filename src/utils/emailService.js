@@ -5,8 +5,6 @@ const API_BASE_URL = import.meta.env.PROD
 // sending contact form email
 export const sendContactEmail = async (formData) => {
   try {
-    console.log("Sending contact form to backend...");
-
     const response = await fetch(`${API_BASE_URL}/contact`, {
       method: "POST",
       headers: {
@@ -18,7 +16,6 @@ export const sendContactEmail = async (formData) => {
     const result = await response.json().catch(() => ({}));
 
     if (response.ok) {
-      console.log("Contact email sent successfully!");
       return {
         success: true,
         message: result.message,
@@ -52,8 +49,6 @@ export const sendContactEmail = async (formData) => {
 // sending booking form email
 export const sendBookingEmail = async (formData) => {
   try {
-    console.log("Sending booking form to backend...");
-
     const response = await fetch(`${API_BASE_URL}/booking`, {
       method: "POST",
       headers: {
@@ -65,7 +60,6 @@ export const sendBookingEmail = async (formData) => {
     const result = await response.json().catch(() => ({}));
 
     if (response.ok) {
-      console.log("Booking email sent successfully!");
       return {
         success: true,
         message: result.message || "Booking request sent successfully!",

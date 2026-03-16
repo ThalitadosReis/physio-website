@@ -53,18 +53,7 @@ app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, phone, subject, message } = req.body;
 
-    console.log("Received contact form submission:", {
-      name,
-      email,
-      phone,
-      subject,
-      message: message ? "has message" : "no message",
-      fullBody: req.body,
-    });
-
     if (!hasEmailConfig()) {
-      console.log("Email service not configured - logging form data:");
-      console.log({ name, email, phone, subject, message });
       return res.json({
         success: true,
         message:
@@ -93,16 +82,7 @@ app.post("/api/contact", async (req, res) => {
       `,
     };
 
-    console.log("Mail options being sent:", {
-      subject: mailOptions.subject,
-      hasPhone: !!phone,
-      hasSubject: !!subject,
-      hasMessage: !!message,
-    });
-
-    console.log("Sending contact email...");
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Contact email sent:", info.messageId);
+    await transporter.sendMail(mailOptions);
 
     res.json({
       success: true,
@@ -122,14 +102,6 @@ app.post("/api/booking", async (req, res) => {
   try {
     const { name, email, phone, service, date, time, message } = req.body;
 
-    console.log("🧪 Received booking form submission:", {
-      name,
-      email,
-      service,
-      date,
-      time,
-    });
-
     const validationError = validateBookingPayload({
       name,
       email,
@@ -147,8 +119,6 @@ app.post("/api/booking", async (req, res) => {
     }
 
     if (!hasEmailConfig()) {
-      console.log("Email service not configured - logging booking data:");
-      console.log({ name, email, phone, service, date, time, message });
       return res.json({
         success: true,
         message:
@@ -188,9 +158,7 @@ app.post("/api/booking", async (req, res) => {
       `,
     };
 
-    console.log("Sending booking email...");
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Booking email sent:", info.messageId);
+    await transporter.sendMail(mailOptions);
 
     res.json({
       success: true,
@@ -210,13 +178,11 @@ app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
 
   if (!hasEmailConfig()) {
-    console.log("Email transport is running in demo mode.");
     return;
   }
 
   try {
     await createTransporter().verify();
-    console.log("Email transport verified successfully.");
   } catch (error) {
     console.error("Email transport verification failed:", error.message);
   }

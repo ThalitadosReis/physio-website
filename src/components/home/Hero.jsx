@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowDownIcon, ArrowRightIcon } from "@phosphor-icons/react";
+import { ArrowDownIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { heroImage } from "../../lib/images";
 import Reveal from "../Reveal";
@@ -22,9 +22,8 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col items-center lg:items-start">
-              <Button as={Link} to="/contact" variant="primary">
+              <Button as={Link} to="/contact" variant="primary" showIcon>
                 Book an Appointment
-                <ArrowRightIcon size={14} />
               </Button>
             </div>
           </Reveal>

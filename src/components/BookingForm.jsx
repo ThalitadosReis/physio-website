@@ -28,7 +28,7 @@ const initialFormState = {
 const labelClass =
   "mb-2 block font-ui text-xs uppercase tracking-[0.2em] text-mauve-500";
 const inputBaseClass =
-  "w-full rounded-xl border border-mauve-200 bg-transparent px-4 py-3 font-ui text-sm text-mauve-800 transition-colors focus:border-mauve-500 focus:outline-none";
+  "w-full rounded-xl border border-mauve-200 bg-transparent px-4 py-3 font-ui text-sm text-mauve-800 placeholder:text-mauve-800/45 transition-colors focus:border-mauve-500 focus:outline-none";
 const selectClass = `${inputBaseClass} appearance-none pr-10`;
 const cardClass =
   "rounded-3xl border border-mauve-200 bg-white p-6 shadow-[0_4px_40px_rgb(44_37_32/6%)]";
@@ -112,6 +112,7 @@ function TimeSelectGroup({
   minuteId,
   timeData,
   onTimePartChange,
+  usePlaceholderStyle = false,
 }) {
   return (
     <div className="grid grid-cols-2 gap-3">
@@ -124,7 +125,9 @@ function TimeSelectGroup({
             id={hourId}
             value={timeData.hour}
             onChange={(e) => onTimePartChange("hour", e.target.value)}
-            className={selectClass}
+            className={`${selectClass} ${
+              usePlaceholderStyle && !timeData.hour ? "text-mauve-800/45" : ""
+            }`}
           >
             <option value="">Hour</option>
             {hourOptions.map((hour) => (
@@ -149,7 +152,9 @@ function TimeSelectGroup({
             id={minuteId}
             value={timeData.minute}
             onChange={(e) => onTimePartChange("minute", e.target.value)}
-            className={selectClass}
+            className={`${selectClass} ${
+              usePlaceholderStyle && !timeData.minute ? "text-mauve-800/45" : ""
+            }`}
           >
             <option value="">Min</option>
             {minuteOptions.map((minute) => (
@@ -195,12 +200,14 @@ export default function BookingForm({
   const [calMonth, setCalMonth] = useState(today.getMonth());
   const [selectedDate, setSelectedDate] = useState(null);
   const [mobileDate, setMobileDate] = useState("");
+  const [showMobileDatePicker, setShowMobileDatePicker] = useState(false);
   const [timeData, setTimeData] = useState({ hour: "", minute: "" });
   const days = getCalendarDays(calYear, calMonth);
 
   const resetDateTime = () => {
     setSelectedDate(null);
     setMobileDate("");
+    setShowMobileDatePicker(false);
     setTimeData({ hour: "", minute: "" });
   };
 
@@ -396,7 +403,9 @@ export default function BookingForm({
                 <select
                   id="service"
                   name="service"
-                  className={selectClass}
+                  className={`${selectClass} ${
+                    !formData.service ? "text-mauve-800/45" : ""
+                  }`}
                   value={formData.service}
                   onChange={handleInputChange}
                   required
@@ -423,13 +432,18 @@ export default function BookingForm({
                 <div className="relative">
                   <input
                     id="date"
-                    type="date"
+                    type={showMobileDatePicker || mobileDate ? "date" : "text"}
                     value={mobileDate}
+                    placeholder="Select a date"
+                    onFocus={() => setShowMobileDatePicker(true)}
+                    onBlur={() => {
+                      if (!mobileDate) setShowMobileDatePicker(false);
+                    }}
                     onChange={(e) => {
                       setMobileDate(e.target.value);
                       setSelectedDate(null);
                     }}
-                    className={`${inputBaseClass} input-date-clean min-w-0 max-w-full pr-12 text-[16px] sm:text-sm`}
+                    className={`${inputBaseClass} input-date-clean min-w-0 max-w-full pr-12 text-sm`}
                   />
                   <CalendarBlankIcon
                     size={16}
@@ -443,6 +457,7 @@ export default function BookingForm({
                 minuteId="mobile-minute"
                 timeData={timeData}
                 onTimePartChange={handleTimePartChange}
+                usePlaceholderStyle
               />
             </div>
 

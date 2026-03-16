@@ -44,7 +44,7 @@ export default function Contact() {
           <Reveal delay={0.1}>
             <BookingForm
               prefilledService={prefilledService}
-              submitLabel="Send Appointment Request"
+              submitLabel="Send Request"
             />
           </Reveal>
         </div>

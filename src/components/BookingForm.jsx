@@ -422,8 +422,8 @@ export default function BookingForm({
               </div>
             </div>
 
-            <div className="grid gap-5 md:col-span-2 lg:hidden">
-              <div>
+            <div className="grid min-w-0 gap-5 md:col-span-2 lg:hidden">
+              <div className="min-w-0">
                 <label htmlFor="date" className={labelClass}>
                   Date
                 </label>
@@ -437,7 +437,7 @@ export default function BookingForm({
                       setSelectedDate(null);
                       setTimeData({ hour: "", minute: "" });
                     }}
-                    className={`${inputBaseClass} input-date-clean pr-12`}
+                    className={`${inputBaseClass} input-date-clean min-w-0 max-w-full pr-12 text-[16px] sm:text-sm`}
                   />
                   <CalendarBlankIcon
                     size={16}

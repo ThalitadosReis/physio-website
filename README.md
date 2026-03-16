@@ -1,10 +1,10 @@
 # Physio+ Website
 
-Responsive physiotherapy clinic website built with React and Tailwind CSS. The project includes a service showcase, booking flow, FAQ section, and an Express mail backend for appointment and contact requests.
+Responsive physiotherapy clinic website built with React and Tailwind CSS. The project includes a service showcase, booking flow, FAQ section, and email handlers for appointment and contact requests.
 
 ## Live Preview
 
-https://physioplus-website.vercel.app/
+https://physioplus-web.netlify.app/
 
 ## Features
 
@@ -25,9 +25,10 @@ https://physioplus-website.vercel.app/
 - Motion
 - Phosphor Icons
 
-### Backend
+### Email Handling
 
-- Express
+- Netlify Functions
+- Express for local development
 - Nodemailer
 - dotenv
 
@@ -48,7 +49,7 @@ EMAIL_TO=recipient@example.com
 PORT=3001
 ```
 
-3. Start the backend server
+3. Start the local backend server
 
 ```bash
 npm run start
@@ -60,7 +61,7 @@ npm run start
 npm run dev
 ```
 
-The frontend expects the backend on `http://localhost:3001` in development unless `VITE_API_BASE_URL` is set.
+The frontend expects the backend on `http://localhost:3001` in development unless `VITE_API_BASE_URL` is set. In production on Netlify, `/api/*` is routed to the Netlify function defined in [netlify.toml](/Users/thalitadosreis/Desktop/projects/physio-website/netlify.toml).
 
 ## Email Setup
 
@@ -71,6 +72,15 @@ The backend uses Gmail SMTP through Nodemailer.
 - Use that value for `GMAIL_APP_PASSWORD`
 
 If email credentials are missing, the server falls back to demo mode and returns a success response without sending mail.
+
+## Netlify Deployment
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Functions directory: `netlify/functions`
+- Required environment variables: `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `EMAIL_TO`
+
+The included [netlify.toml](/Users/thalitadosreis/Desktop/projects/physio-website/netlify.toml) rewrites `/api/contact` and `/api/booking` to the Netlify function and handles SPA routing for the React app.
 
 ## Scripts
 

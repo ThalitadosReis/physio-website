@@ -18,6 +18,14 @@
 }
 
 @layer utilities {
+  .input-date-clean {
+    min-width: 0;
+    max-width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    overflow: hidden;
+  }
+
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,

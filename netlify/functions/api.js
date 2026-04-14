@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { sendBookingEmail, sendContactEmail } from "../../lib/emailApi.js";
+import { sendBookingEmail } from "../../lib/emailApi.js";
 
 dotenv.config();
 
@@ -46,14 +46,6 @@ export const handler = async (event) => {
   }
 
   try {
-    if (event.path.endsWith("/contact")) {
-      const result = await sendContactEmail(payload);
-      return json(result.statusCode, {
-        success: result.success,
-        message: result.message,
-      });
-    }
-
     if (event.path.endsWith("/booking")) {
       const result = await sendBookingEmail(payload);
       return json(result.statusCode, {

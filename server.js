@@ -5,7 +5,6 @@ import {
   createTransporter,
   hasEmailConfig,
   sendBookingEmail,
-  sendContactEmail,
 } from "./lib/emailApi.js";
 
 dotenv.config();
@@ -16,23 +15,6 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-// Contact form endpoint
-app.post("/api/contact", async (req, res) => {
-  try {
-    const result = await sendContactEmail(req.body);
-    res.status(result.statusCode).json({
-      success: result.success,
-      message: result.message,
-    });
-  } catch (error) {
-    console.error("Error sending contact email:", error);
-    res.status(500).json({
-      success: false,
-      message: "Failed to send email. Please try again later.",
-    });
-  }
-});
 
 // Booking form endpoint
 app.post("/api/booking", async (req, res) => {
@@ -53,7 +35,7 @@ app.post("/api/booking", async (req, res) => {
 
 // Start server
 app.listen(PORT, async () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 
   if (!hasEmailConfig()) {
     return;
